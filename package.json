@@ -9,6 +9,7 @@
   "dependencies": {
     "react": "16.6.0-alpha.8af6728",
     "react-native": "0.57.4",
+    "react-native-fs": "^2.12.0",
     "react-native-router-flux": "^4.0.5",
     "react-redux": "^5.1.0",
     "realm": "^2.18.0",
