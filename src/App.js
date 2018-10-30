@@ -34,7 +34,7 @@ then(()=>{
         });
         const remedies = realm.objects('Remedies');
         console.log(remedies.length);
-       // console.log(remedies[0].id +''+ remedies.remedy)
+        console.log(remedies[0].id +'')
 
     });
 
