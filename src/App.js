@@ -14,7 +14,7 @@ import Realm from 'realm';
 const RemediesSchema ={
     name : 'Remedies',
     properties:{
-     id:'int',
+     id:'string',
      remedy:'string',
      concomitants:'string',
      location:'string',
@@ -26,13 +26,14 @@ const RemediesSchema ={
     }
 };
 
-fs.copyFileAssets('Home.realm',fs.DocumentDirectoryPath + '/Home.realm').then(()=>{
-        const realm =new Realm({
-            path:fs.DocumentDirectoryPath + '/Home.realm',
-            schema:[RemediesSchema]
+fs.copyFileAssets('Home.realm', fs.DocumentDirectoryPath + '/Home.realm').
+then(()=>{
+    const realm =new Realm({
+        path: fs.DocumentDirectoryPath + ' /Home.realm ',
+        schema: [RemediesSchema]
         });
-        const remedies = realm.objects('remedy');
-        console.log('LENGTH: ' + remedies.length);
+        const remedies = realm.objects('Remedies');
+        console.log(remedies.length);
        // console.log(remedies[0].id +''+ remedies.remedy)
 
     });
