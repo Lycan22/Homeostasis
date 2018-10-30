@@ -25,9 +25,9 @@ const RemediesSchema ={
      constitutional:'string',
     }
 };
-
 fs.copyFileAssets('Home.realm', fs.DocumentDirectoryPath + '/Home.realm').
 then(()=>{
+    console.log(fs.copyFileAssets("done"));
     const realm =new Realm({
         path: fs.DocumentDirectoryPath + ' /Home.realm ',
         schema: [RemediesSchema]
