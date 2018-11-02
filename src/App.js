@@ -25,20 +25,23 @@ const RemediesSchema ={
      constitutional:'string',
     }
 };
+
+
 fs.copyFileAssets('home.realm', fs.DocumentDirectoryPath + '/home.realm').
 then(()=>{
     console.log(fs.copyFileAssets("done"));
     const realm =new Realm({
         path: fs.DocumentDirectoryPath + ' /home.realm ',
-        schema: [RemediesSchema]
+        schema: [RemediesSchema],
+        readOnly:true
         });
         const remedies = realm.objects('Remedies');
         console.log(remedies.length);
-        console.log(remedies[0].id +'')
 
     });
 
 export default class App extends Component {
+
 
   render() {
     return (
