@@ -27,48 +27,63 @@ const RemediesSchema ={
 };
 
 
-fs.copyFileAssets('home.realm', fs.DocumentDirectoryPath + '/home.realm').
-then(()=>{
-    console.log(fs.copyFileAssets("done"));
-    const realm =new Realm({
-        path: fs.DocumentDirectoryPath + ' /home.realm ',
-        schema: [RemediesSchema],
-        readOnly:true
-        });
-        const remedies = realm.objects('Remedies');
-        console.log(remedies.length);
-
-    });
-
 export default class App extends Component {
 
+    componentWillMount(){
 
-  render() {
-    return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>Welcome to React Native!</Text>
-        <Text style={styles.instructions}>To get started, edit App.js</Text>
-        <Text style={styles.instructions}>instructions</Text>
-      </View>
-    );
-  }
+        if (Platform.OS === "android") {
+            fs.copyFileAssets("home.realm", fs.DocumentDirectoryPath + "/home.realm");
+            fs.copyFileAssets("home.realm.lock", fs.DocumentDirectoryPath + "/home.realm.lock");
+            console.log("done");
+        } else {
+            try {
+                fs.copyFile(fs.MainBundlePath + "/home.realm", fs.DocumentDirectoryPath + "/home.realm");
+                fs.copyFile(fs.MainBundlePath + "/home.realm.lock", fs.DocumentDirectoryPath + "/home.realm.lock");
+            } catch (e) {
+                console.log("FILE ALREADY EXISTS");
+
+            }
+        }
+/*  fs.copyFileAssets('home.realm', fs.DocumentDirectoryPath + '/home.realm').
+   then(()=>{
+       console.log(fs.copyFileAssets("done"));
+       const realm =new Realm({
+           path: fs.DocumentDirectoryPath + '/home.realm',
+           schema: [RemediesSchema],
+           readOnly:true
+       });
+       const remedies = realm.objects('Remedies');
+       console.log(remedies.length);
+   });*/
+};
+
+
+render() {
+return (
+ <View style={styles.container}>
+   <Text style={styles.welcome}>Welcome to React Native!</Text>
+   <Text style={styles.instructions}>To get started, edit App.js</Text>
+   <Text style={styles.instructions}>instructions</Text>
+ </View>
+);
+}
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
-  },
+container: {
+flex: 1,
+justifyContent: 'center',
+alignItems: 'center',
+backgroundColor: '#F5FCFF',
+},
+welcome: {
+fontSize: 20,
+textAlign: 'center',
+margin: 10,
+},
+instructions: {
+textAlign: 'center',
+color: '#333333',
+marginBottom: 5,
+},
 });
