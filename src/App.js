@@ -29,7 +29,6 @@ const RemediesSchema ={
 export default class App extends Component {
 
     componentWillMount(){
-
   fs.copyFileAssets('home.realm', fs.DocumentDirectoryPath + '/home.realm').
    then(()=>{
        console.log(fs.copyFileAssets("done"));
