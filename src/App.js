@@ -26,35 +26,23 @@ const RemediesSchema ={
     }
 };
 
-
 export default class App extends Component {
 
     componentWillMount(){
 
-        if (Platform.OS === "android") {
-            fs.copyFileAssets("home.realm", fs.DocumentDirectoryPath + "/home.realm");
-            fs.copyFileAssets("home.realm.lock", fs.DocumentDirectoryPath + "/home.realm.lock");
-            console.log("done");
-        } else {
-            try {
-                fs.copyFile(fs.MainBundlePath + "/home.realm", fs.DocumentDirectoryPath + "/home.realm");
-                fs.copyFile(fs.MainBundlePath + "/home.realm.lock", fs.DocumentDirectoryPath + "/home.realm.lock");
-            } catch (e) {
-                console.log("FILE ALREADY EXISTS");
-
-            }
-        }
-/*  fs.copyFileAssets('home.realm', fs.DocumentDirectoryPath + '/home.realm').
+  fs.copyFileAssets('home.realm', fs.DocumentDirectoryPath + '/home.realm').
    then(()=>{
        console.log(fs.copyFileAssets("done"));
        const realm =new Realm({
-           path: fs.DocumentDirectoryPath + '/home.realm',
+           path: Platform.OS === 'ios'
+               ? fs.MainBundlePath + '/home.realm'
+               : fs.DocumentDirectoryPath + '/home.realm',
            schema: [RemediesSchema],
            readOnly:true
        });
        const remedies = realm.objects('Remedies');
        console.log(remedies.length);
-   });*/
+   });
 };
 
 
