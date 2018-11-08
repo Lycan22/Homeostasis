@@ -32,6 +32,4 @@ then(()=>{
     const remedies = realm.objects('Remedies');
     console.log('length remedy'+remedies.length);
 
-    export default realm;
-
 });
