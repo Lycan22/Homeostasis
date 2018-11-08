@@ -20,7 +20,7 @@ const RemediesSchema ={
     }
 };
 
-fs.copyFileAssets('home.realm', fs.DocumentDirectoryPath + '/home.realm').
+export const databaseOptions =  fs.copyFileAssets('home.realm', fs.DocumentDirectoryPath + '/home.realm').
 then(()=>{
     const realm =new Realm({
         path: Platform.OS === 'ios'
@@ -33,3 +33,5 @@ then(()=>{
     console.log('length remedy'+remedies.length);
 
 });
+export default new Realm(databaseOptions)
+

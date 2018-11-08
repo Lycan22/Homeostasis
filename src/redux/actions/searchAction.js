@@ -1,5 +1,4 @@
 import Realm from '../../providers/realm';
-let SQLiteObj = Realm.getInstance();
 
 import {
     SET_SEARCH_KEY,
@@ -23,18 +22,4 @@ export const getSearchResult = (rows) => ({
     payload: rows
 });
 
-
-export const advSearch = (text) => {
-    return (dispatch,getState)=> {
-        let advKey = getState().search.advKey || "";
-        console.log("inside the retrieveSQL Transaction");
-        console.log(advKey);
-        SQLiteObj.transaction((tx) => {
-            tx.executeSql("SELECT "+advKey+",id,remedy FROM Remedies WHERE "+advKey+" LIKE '%"+text+"%' LIMIT 20", [] , (tx, results) => {
-                let rows = results.rows.raw();
-                console.log(rows);
-                dispatch(getSearchResult(rows));
-            });
-        });
-    }};
 
