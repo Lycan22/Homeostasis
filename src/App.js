@@ -7,7 +7,7 @@
  */
 
 import React, {Component} from 'react';
-import {Platform, StyleSheet, Text, View} from 'react-native';
+import {Platform, StyleSheet, Text, View,AppRegistry} from 'react-native';
 import fs from 'react-native-fs';
 import Realm from 'realm';
 
@@ -36,7 +36,7 @@ then(()=>{
         readOnly:true
     });
     const remedies = realm.objects('Remedies');
-    console.log(remedies.length);
+    console.log('length remedy'+remedies.length);
 });
 
 
