@@ -1,7 +1,7 @@
 import {
     DAY_OF_QUOTE,
 } from './actionType'
-import Realm from '../../providers/realm';
+import Realm from '../../database/realm';
 
 
 

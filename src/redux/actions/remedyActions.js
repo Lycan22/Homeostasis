@@ -5,7 +5,7 @@ import {
     RESET_PAGE,
     DETAILS_REMEDY,
 } from './actionType'
-import Realm from '../../providers/realm';
+import Realm from '../../database/realm';
 
 
 
