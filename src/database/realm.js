@@ -20,17 +20,32 @@ const RemediesSchema ={
     }
 };
 
-export const databaseOptions =  fs.copyFileAssets('home.realm', fs.DocumentDirectoryPath + '/home.realm').
-then(()=>{
-    const realm =new Realm({
-        path: Platform.OS === 'ios'
-            ? fs.MainBundlePath + '/home.realm'
-            : fs.DocumentDirectoryPath + '/home.realm',
-        schema: [RemediesSchema],
-        readOnly:true
-    });
-  //  const remedies = realm.objects('Remedies');
-  //  console.log('length remedy'+remedies.length);
-});
-export default new Realm(databaseOptions)
+export default class RealmInstance {
+
+    static _realm;
+
+    static _init() {
+        fs.copyFileAssets('home.realm', fs.DocumentDirectoryPath + '/home.realm').
+        then(()=>{
+            RealmInstance._realm =new Realm({
+                path: Platform.OS === 'ios'
+                    ? fs.MainBundlePath + '/home.realm'
+                    : fs.DocumentDirectoryPath + '/home.realm',
+                schema: [RemediesSchema],
+                readOnly:true
+            });
+            //  const remedies = realm.objects('Remedies');
+            //  console.log('length remedy'+remedies.length);
+        });
+    }
+
+    static getInstance() {
+        if (!RealmInstance._realm) {
+            RealmInstance._init();
+        }
+        return RealmInstance._realm;
+    }
+}
+
+
 
