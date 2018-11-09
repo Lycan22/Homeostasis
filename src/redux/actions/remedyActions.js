@@ -5,9 +5,23 @@ import {
     RESET_PAGE,
     DETAILS_REMEDY,
 } from './actionType'
-import Realm from '../../database/realm';
+import realm from '../../database/realm';
+let realmDB =realm.getInstance();
 
 
+export const getSection = () => {
+    return (dispatch, getState) => {
+        let section = getState().remedy.section;
+        console.log("inside the retrieveSQL Transaction");
+        SQLiteObj.transaction((tx) => {
+            tx.executeSql('SELECT id,remedy,synopsis FROM Remedies WHERE id LIKE ?', [section], (tx, results) => {
+                let rows = results.rows.raw();
+                dispatch(getRemedyList(rows));
+            });
+        });
+
+    };
+};
 
 export const getRemedyList = (rows) => {
 
