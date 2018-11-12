@@ -12,14 +12,8 @@ let realmDB =realm.getInstance();
 export const getSection = () => {
     return (dispatch, getState) => {
         let section = getState().remedy.section;
-        console.log("inside the retrieveSQL Transaction");
-        SQLiteObj.transaction((tx) => {
-            tx.executeSql('SELECT id,remedy,synopsis FROM Remedies WHERE id LIKE ?', [section], (tx, results) => {
-                let rows = results.rows.raw();
-                dispatch(getRemedyList(rows));
-            });
-        });
-
+        console.log("inside the Realm Transaction");
+        realmDB.objects('Remedies').sorted('id').filtered('type = "' + type + '"');
     };
 };
 
