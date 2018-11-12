@@ -13,7 +13,7 @@ export const getSection = () => {
     return (dispatch, getState) => {
         let section = getState().remedy.section;
         console.log("inside the Realm Transaction");
-        realmDB.objects('Remedies').sorted('id').filtered('type = "' + type + '"');
+        realmDB.objects('Remedies').filtered('id LIKE "' + section + '"');
     };
 };
 
