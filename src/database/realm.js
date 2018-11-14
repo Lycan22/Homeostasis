@@ -20,14 +20,14 @@ const RemediesSchema ={
     }
 };
 
-export default class RealmInstance {
+export default class realm {
 
     static _realm;
 
     static _init() {
         fs.copyFileAssets('home.realm', fs.DocumentDirectoryPath + '/home.realm').
         then(()=>{
-            RealmInstance._realm =new Realm({
+            realm._realm =new Realm({
                 path: Platform.OS === 'ios'
                     ? fs.MainBundlePath + '/home.realm'
                     : fs.DocumentDirectoryPath + '/home.realm',
@@ -39,11 +39,11 @@ export default class RealmInstance {
         });
     }
 
-    static getInstance() {
-        if (!RealmInstance._realm) {
-            RealmInstance._init();
+static getInstance() {
+        if (!realm._realm) {
+            realm._init();
         }
-        return RealmInstance._realm;
+        return realm._realm;
     }
 }
 
