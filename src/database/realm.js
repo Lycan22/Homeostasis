@@ -2,23 +2,8 @@ import React, {Component} from 'react';
 import {Platform, StyleSheet, Text, View} from 'react-native';
 import fs from 'react-native-fs';
 import Realm from 'realm';
+import RemediesSchema from '../database/Schema'
 
-
-const RemediesSchema ={
-    name: 'Remedies',
-    properties: {
-        id: 'string?',
-        remedy: 'string?',
-        concomitants: 'string?',
-        location: 'string?',
-        aetiology: 'string?',
-        modalities: 'string?',
-        synopsis: 'string?',
-        keynote: 'string?',
-        constitutional: 'string?'
-
-    }
-};
 
 export default class realm {
 

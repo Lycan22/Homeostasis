@@ -9,13 +9,27 @@ import realm from '../../database/realm';
 let realmDB =realm.getInstance();
 
 
-export const getSection = () => {
+export const etSection = () => {
     return (dispatch, getState) => {
         let section = getState().remedy.section;
         console.log("inside the Realm Transaction");
         realmDB.objects('Remedies').filtered('id LIKE "' + section + '"');
     };
 };
+
+export const getSection = (resolve, reject) => {
+    Realm.open(realmDB)
+        .then(realm =>
+            realm.write(() => {
+                let allObject = realm.objects('Remedies');
+                resolve(allObject);
+            }))
+        .catch(err => {
+            console.warn(`Faill get all ${'Remedies'}, ${err}`);
+            reject(err);
+        });
+};
+
 
 export const getRemedyList = (rows) => {
 
