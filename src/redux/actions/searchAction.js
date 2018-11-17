@@ -1,4 +1,3 @@
-import Realm from '../../database/realm';
 
 import {
     SET_SEARCH_KEY,
