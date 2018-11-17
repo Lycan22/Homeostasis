@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {Platform, StyleSheet, Text, View} from 'react-native';
 import fs from 'react-native-fs';
 import Realm from 'realm';
-import RemediesSchema from '../database/Schema'
+import RemediesSchema from './schema'
 
 
 export default class realm {
@@ -24,13 +24,10 @@ export default class realm {
         });
     }
 
-static getInstance() {
+    static getInstance() {
         if (!realm._realm) {
             realm._init();
         }
         return realm._realm;
     }
 }
-
-
-

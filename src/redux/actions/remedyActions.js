@@ -5,8 +5,7 @@ import {
     RESET_PAGE,
     DETAILS_REMEDY,
 } from './actionType'
-import realm from '../../database/realm';
-let realmDB =realm.getInstance();
+
 
 
 export const etSection = () => {
