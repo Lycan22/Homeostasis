@@ -5,29 +5,18 @@ import {
     RESET_PAGE,
     DETAILS_REMEDY,
 } from './actionType'
+import realmDB from '../../database/realmDB';
 
 
-
-export const etSection = () => {
+export const getSection = () => {
     return (dispatch, getState) => {
         let section = getState().remedy.section;
         console.log("inside the Realm Transaction");
-        realmDB.objects('Remedies').filtered('id LIKE "' + section + '"');
+        realmDB.getInstance().objects('Remedies').filtered('id LIKE "' + section + '"');
     };
 };
 
-export const getSection = (resolve, reject) => {
-    Realm.open(realmDB)
-        .then(realm =>
-            realm.write(() => {
-                let allObject = realm.objects('Remedies');
-                resolve(allObject);
-            }))
-        .catch(err => {
-            console.warn(`Faill get all ${'Remedies'}, ${err}`);
-            reject(err);
-        });
-};
+
 
 
 export const getRemedyList = (rows) => {
