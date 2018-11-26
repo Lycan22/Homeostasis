@@ -8,13 +8,13 @@ import {
 import realmDB from '../../database/realmDB';
 
 
-export const getSection = () => {
+export function getSection() {
     return (dispatch, getState) => {
         let section = getState().remedy.section;
         console.log("inside the Realm Transaction");
         realmDB.getInstance().objects('Remedies').filtered('id LIKE "' + section + '"');
     };
-};
+}
 
 
 

@@ -1,22 +1,8 @@
 import React, {Component} from 'react';
 import fs from 'react-native-fs';
+import Remedies from '../database/schema'
 import Realm from 'realm';
 
-const RemediesSchema ={
-    name: 'Remedies',
-    properties: {
-        id: 'string?',
-        remedy: 'string?',
-        concomitants: 'string?',
-        location: 'string?',
-        aetiology: 'string?',
-        modalities: 'string?',
-        synopsis: 'string?',
-        keynote: 'string?',
-        constitutional: 'string?'
-
-    }
-};
 
 export default class realmDB {
 
@@ -29,7 +15,7 @@ export default class realmDB {
                 path: Platform.OS === 'ios'
                     ? fs.MainBundlePath + '/home.realm'
                     : fs.DocumentDirectoryPath + '/home.realm',
-                schema: [RemediesSchema],
+                schema: [Remedies],
                 readOnly:true
             });
             const remedies = realmDB.objects('Remedies');
