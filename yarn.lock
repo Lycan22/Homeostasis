@@ -5301,10 +5301,10 @@ react-native-elements@^0.19.1:
     opencollective "^1.0.3"
     prop-types "^15.5.8"
 
-react-native-fs@^2.12.0:
-  version "2.12.0"
-  resolved "https://registry.yarnpkg.com/react-native-fs/-/react-native-fs-2.12.0.tgz#77b7893d9f9a9318f577031a3447d1aace022020"
-  integrity sha512-CzxL1dMASBgi9/rKbfEMGWZFKqDKFKT6GMi9722GPIB+n1TjBcvG/6vMSixqSn2vy5jc5p4EZHsfm0iKREtiLQ==
+react-native-fs@^2.12.1:
+  version "2.12.1"
+  resolved "https://registry.yarnpkg.com/react-native-fs/-/react-native-fs-2.12.1.tgz#55ec15392eb39e9fa9d6628c2c5b60b9f59102b7"
+  integrity sha512-T0vR5c+3fPVr12o4UoKr+gMHVokbLmKFGg2x1rOprwjaoJpV75Tw8mC3RpUp1u9AZHzWC4WcomhfqAlfXqDUug==
   dependencies:
     base-64 "^0.1.0"
     utf8 "^2.1.1"
