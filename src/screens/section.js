@@ -7,7 +7,6 @@ import {
 import Button from 'react-native-button';
 import { Actions } from 'react-native-router-flux';
 import { connect } from 'react-redux';
-import {getSection,setSection} from '../redux/actions/remedyActions'
 
 
 class  section extends Component {

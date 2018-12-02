@@ -5,7 +5,6 @@ import {StyleSheet, Text, Dimensions,TouchableOpacity,View} from 'react-native';
 import { Actions } from 'react-native-router-flux';
 import Button from 'react-native-button';
 import { connect } from 'react-redux';
-import {setAdvKey,advSearch} from'../redux/actions/searchAction';
 
 class search extends Component {
     render() {

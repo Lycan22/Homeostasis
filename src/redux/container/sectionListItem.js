@@ -17,7 +17,6 @@ export default class sectionListItem extends React.PureComponent {
     }
 
     static propTypes = {
-        listdata: PropTypes.object.isRequired,
     };
 
     render() {

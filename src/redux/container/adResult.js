@@ -13,7 +13,6 @@ import {
 import { setSearchKey,advSearch } from '../actions/searchAction';
 import {connect} from 'react-redux';
 import {SearchBar } from 'react-native-elements';
-import {selectRemedyDetails} from '../actions/remedyActions'
 import {Actions} from "react-native-router-flux";
 import { Card} from 'react-native-elements';
 import {setLoading} from '../actions/utilsAction'

@@ -7,7 +7,6 @@ import {
     View,ActivityIndicator
 } from 'react-native';
 import {connect} from 'react-redux';
-import { getSection,getRemedyList} from '../actions/remedyActions';
 import DataItem from './sectionListItem';
 import {SearchBar } from 'react-native-elements';
 import { setLoading } from '../actions/utilsAction';

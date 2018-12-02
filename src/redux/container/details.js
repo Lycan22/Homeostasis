@@ -4,7 +4,6 @@ import React, { Component } from 'react';
 import {StyleSheet, Text, View,ScrollView} from 'react-native';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
-import {remedyDetails, selectRemedyDetails} from '../actions/remedyActions';
 import { Card } from 'react-native-elements';
 import PinchZoomView from 'react-native-pinch-zoom-view';
 
