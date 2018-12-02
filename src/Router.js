@@ -3,6 +3,7 @@
 import React, { Component } from "react"
 import {Scene, Router, Actions, Reducer, Drawer, Modal, Stack} from "react-native-router-flux";
 import { connect, Provider } from 'react-redux';
+import {Platform, StyleSheet, Text, View} from 'react-native';
 
 import { configureStore } from './store/store';
 import MainFrag from './screens/main';
