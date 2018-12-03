@@ -27,10 +27,9 @@ const allSchemas ={
 
 export const querySection = (section) => new Promise((resolve, reject) => {
     Realm.open(allSchemas).then(realm => {
-        let list = realm.objects('Remedies');
-        let query = list.filtered('id CONTAINS '+section+'');
-        resolve(query);
-        console.log(query.length+"done")
+        let list = realm.objects("Remedies").filtered("id CONTAINS "+section+"");
+        resolve(list);
+        console.log(list.length+"done")
     }).catch((error) => reject(error));
 
 
