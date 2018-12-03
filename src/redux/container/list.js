@@ -15,7 +15,9 @@ import Realm from 'realm';
  class list extends Component {
 
      componentWillMount(){
-         querySection();
+        const section= this.props.section;
+        console.log(section+"done");
+         querySection(section);
 
      }
      render() {
