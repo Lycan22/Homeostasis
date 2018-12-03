@@ -25,10 +25,10 @@ const allSchemas ={
     readOnly:true
 };
 
-export const querySection = () => new Promise((resolve, reject) => {
+export const querySection = (section) => new Promise((resolve, reject) => {
     Realm.open(allSchemas).then(realm => {
         let list = realm.objects('Remedies');
-        let query = list.filtered('id CONTAINS "150"');
+        let query = list.filtered('id CONTAINS '+section+'');
         resolve(query);
         console.log(query.length+"done")
     }).catch((error) => reject(error));
