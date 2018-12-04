@@ -6,7 +6,7 @@ import {
     Text,FlatList,
     View,ActivityIndicator
 } from 'react-native';
-import {querySection} from'../../database/allSchema'
+import realm,{querySection} from'../../database/allSchema'
 import DataItem from './sectionListItem';
 import {SearchBar } from 'react-native-elements';
 import { setLoading } from '../actions/utilsAction';
@@ -21,15 +21,36 @@ import { setLoading } from '../actions/utilsAction';
              list:[]
          };
          //binding
+         this.searchChanged = this.searchChanged.bind(this);
+
+         this.reloadData();
+         realm.addListener('change', () => {
+             this.reloadData();
+         });
      }
 
-     componentWillMount(){
-        const section= this.props.section;
-        console.log(section+"done");
-         this.state.list = querySection(section);
-         console.log(this.state.list+"done")
-     }
 
+     reloadData = () => {
+         const section= this.props.section;
+         console.log(section+"done");
+         querySection(section).then((list) => {
+             this.setState({ list });
+         }).catch((error) => {
+             this.setState({ list: [] });
+         });
+         console.log(`reloadData`);
+     };
+
+     _renderItem = (listData)=> {
+         return (
+             <DataItem listData={listData}/>);
+     };
+
+     _keyExtractor = (item, index) => item.id;
+
+     searchChanged(text) {
+         this.setState({ query: text });
+     }
 
      render() {
          return (
@@ -38,6 +59,7 @@ import { setLoading } from '../actions/utilsAction';
                      round
                      showLoading
                      lightTheme
+                     onChangeText={text=>this.searchChanged(text)}
                      placeholder='Type Here...' />
                  <FlatList
                      onEndReache={()=>this.state.list.length}

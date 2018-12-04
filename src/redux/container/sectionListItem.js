@@ -17,6 +17,7 @@ export default class sectionListItem extends React.PureComponent {
     }
 
     static propTypes = {
+        listData: PropTypes.object.isRequired,
     };
 
     render() {
@@ -24,14 +25,14 @@ export default class sectionListItem extends React.PureComponent {
             <View style={styles.container}>
                         <Card
                             containerStyle={{backgroundColor:'#F0FFF0'}}
-                            title={this.props.listdata.list.remedy}>
+                            title={this.props.listData.remedy}>
                             <Text style={styles.text}>
-                                {this.props.listdata.list.synopsis}
+                                {this.props.listData.synopsis}
                             </Text>
                             <Button
                                 raised
                                 backgroundColor='#03A9F4'
-                                onPress={() => Actions.details({data:this.props.listdata.list.id})}
+                                onPress={() => Actions.details({data:this.props.listData.id})}
                                 buttonStyle={{borderRadius: 0, marginLeft: 0, marginRight: 0, marginBottom: 0}}
                                 title='More detail' />
                         </Card>
