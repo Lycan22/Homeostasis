@@ -18,6 +18,7 @@ import { setLoading } from '../actions/utilsAction';
          super(props);
          this.state={
              query:"",
+             list:[]
          };
          //binding
      }
@@ -25,16 +26,10 @@ import { setLoading } from '../actions/utilsAction';
      componentWillMount(){
         const section= this.props.section;
         console.log(section+"done");
-         this.data_source = querySection(section);
-         console.log(this.data_source+"done")
+         this.state.list = querySection(section);
+         console.log(this.state.list+"done")
      }
 
-     _renderItem = (listdata)=> {
-         return (
-             <DataItem listdata={listdata}/>);
-
-     };
-     _keyExtractor = (item, index) => item.id;
 
      render() {
          return (
@@ -45,8 +40,8 @@ import { setLoading } from '../actions/utilsAction';
                      lightTheme
                      placeholder='Type Here...' />
                  <FlatList
-                     onEndReache={()=>this.props.data_source.length}
-                     data={this.data_source}
+                     onEndReache={()=>this.state.list.length}
+                     data={this.state.list}
                      renderItem={this._renderItem}
                      keyExtractor={this._keyExtractor}
                  />
