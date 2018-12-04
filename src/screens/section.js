@@ -20,7 +20,7 @@ class  section extends Component {
         return (
             <View style={styles.container}>
                 <Text style={styles.textTitle}>Which Section do you looking for? </Text>
-                <Button onPress={() =>{Actions.list({section: 'S103'});}}>Section 1</Button>
+                <Button onPress={() =>{Actions.list({section: 'S1'});}}>Section 1</Button>
                 <Button onPress={() =>{Actions.list({section: 'S2'});}}>Section 2</Button>
                 <Button onPress={() =>{Actions.list({section: 'S3'});}}>Section 5</Button>
                 <Button onPress={() =>{Actions.list({section: 'S4'});}}>Section 6</Button>
