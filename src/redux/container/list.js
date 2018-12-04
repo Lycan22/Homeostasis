@@ -20,14 +20,13 @@ import { setLoading } from '../actions/utilsAction';
              query:"",
          };
          //binding
-         this.searchChanged = this.searchChanged.bind(this);
      }
 
      componentWillMount(){
         const section= this.props.section;
         console.log(section+"done");
-         querySection(section);
-         this.props.setLoading(true);
+         this.data_source = querySection(section);
+         console.log(this.data_source+"done")
      }
 
      _renderItem = (listdata)=> {
