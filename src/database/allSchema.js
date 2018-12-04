@@ -4,7 +4,6 @@ import {Platform} from 'react-native';
 
 const RemediesSchema = {
     name: 'Remedies',
-    primaryKey: 'id',
     properties: {
         id: 'string?',
         remedy: 'string?',
