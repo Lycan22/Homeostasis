@@ -4,6 +4,7 @@ import {Platform} from 'react-native';
 
 const RemediesSchema = {
     name: 'Remedies',
+    primaryKey: 'id',
     properties: {
         id: 'string?',
         remedy: 'string?',
@@ -27,7 +28,7 @@ const allSchemas ={
 
 export const querySection = (section) => new Promise((resolve, reject) => {
     Realm.open(allSchemas).then(realm => {
-        let list = realm.objects("Remedies").filtered(`id CONTAINS "${section}"`);
+        let list = realm.objects("Remedies").filtered(`id CONTAINS[c] "${section}"`);
         resolve(list);
         console.log(list.length+"done")
     }).catch((error) => reject(error));
