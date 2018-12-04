@@ -24,14 +24,14 @@ export default class sectionListItem extends React.PureComponent {
             <View style={styles.container}>
                         <Card
                             containerStyle={{backgroundColor:'#F0FFF0'}}
-                            title={this.props.listdata.item.remedy}>
+                            title={this.props.listdata.list.remedy}>
                             <Text style={styles.text}>
-                                {this.props.listdata.item.synopsis}
+                                {this.props.listdata.list.synopsis}
                             </Text>
                             <Button
                                 raised
                                 backgroundColor='#03A9F4'
-                                onPress={() => Actions.details({data:this.props.listdata.item.id})}
+                                onPress={() => Actions.details({data:this.props.listdata.list.id})}
                                 buttonStyle={{borderRadius: 0, marginLeft: 0, marginRight: 0, marginBottom: 0}}
                                 title='More detail' />
                         </Card>

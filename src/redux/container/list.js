@@ -32,11 +32,25 @@ import { setLoading } from '../actions/utilsAction';
      _renderItem = (listdata)=> {
          return (
              <DataItem listdata={listdata}/>);
+
      };
+     _keyExtractor = (item, index) => item.id;
+
      render() {
          return (
-             <View style={styles.container}>
-             </View>
+             <ScrollView style={{flex: 1}}>
+                 <SearchBar
+                     round
+                     showLoading
+                     lightTheme
+                     placeholder='Type Here...' />
+                 <FlatList
+                     onEndReache={()=>this.props.data_source.length}
+                     data={this.data_source}
+                     renderItem={this._renderItem}
+                     keyExtractor={this._keyExtractor}
+                 />
+             </ScrollView>
          );
      };
  }
