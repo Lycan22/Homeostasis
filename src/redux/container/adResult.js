@@ -10,7 +10,7 @@ import {
     View,
     ActivityIndicator,
 } from 'react-native';
-import { setSearchKey,advSearch } from '../actions/searchAction';
+import { setSearchKey } from '../actions/searchAction';
 import {connect} from 'react-redux';
 import {SearchBar } from 'react-native-elements';
 import {Actions} from "react-native-router-flux";
