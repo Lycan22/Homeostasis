@@ -10,10 +10,12 @@
 
 import React, { Component } from 'react';
 import Router from './Router';
+import Realm from "realm";
 
 
 class App extends React.Component {
     render() {
+        Realm.copyBundledRealmFiles();
         return (
             <Router />
         );

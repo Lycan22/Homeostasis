@@ -25,6 +25,8 @@ const allSchemas ={
     readOnly:true
 };
 
+
+
 export const querySection = (section) => new Promise((resolve, reject) => {
     Realm.open(allSchemas).then(realm => {
         let list = realm.objects("Remedies").filtered(`id CONTAINS[c] "${section}"`);
@@ -33,5 +35,7 @@ export const querySection = (section) => new Promise((resolve, reject) => {
     }).catch((error) => reject(error));
 
 });
-export default new Realm(allSchemas);
+
+
+
 

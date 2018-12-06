@@ -22,12 +22,7 @@ import fs from "react-native-fs";
 const store = configureStore();
 const RouterRedux = connect()(Router);
 
-if(Platform.OS === 'ios') {
-    console.log(" ios")
-} else {
-    fs.copyFileAssets('home.realm', fs.DocumentDirectoryPath + '/home.realm');
-    console.log("android")
-}
+
 //Screen names
 const RouterComponent = () => (
     <Provider store={store}>
