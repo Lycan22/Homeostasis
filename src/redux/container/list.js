@@ -6,7 +6,7 @@ import {
     Text,FlatList,
     View,ActivityIndicator
 } from 'react-native';
-import realm,{querySection} from'../../database/allSchema'
+import {querySection} from'../../database/allSchema'
 import DataItem from './sectionListItem';
 import {SearchBar } from 'react-native-elements';
 import { setLoading } from '../actions/utilsAction';
@@ -22,24 +22,17 @@ import { setLoading } from '../actions/utilsAction';
          };
          //binding
          this.searchChanged = this.searchChanged.bind(this);
-
-         this.reloadData();
-         realm.addListener('change', () => {
-             this.reloadData();
-         });
      }
 
-
-     reloadData = () => {
-         const section= this.props.section;
+     componentWillMount() {
+         const section = this.props.section;
          console.log(section+"done");
-         querySection(section).then((list) => {
-             this.setState({ list });
-         }).catch((error) => {
-             this.setState({ list: [] });
-         });
-         console.log(`reloadData`);
-     };
+         const data = querySection(section);
+         console.log(data.length);
+         this.setState({
+             list:data
+         })
+     }
 
      _renderItem = (listData)=> {
          return (
@@ -64,8 +57,13 @@ import { setLoading } from '../actions/utilsAction';
                  <FlatList
                      onEndReache={()=>this.state.list.length}
                      data={this.state.list}
-                     renderItem={this._renderItem}
                      keyExtractor={this._keyExtractor}
+                     renderItem={({ item }) => (
+                         <View style={{ flex: 1, flexDirection: "column" }}>
+                             <Text style={styles.textView}>{item[0].id}</Text>
+                             <Text style={styles.textView}>{item[1].location}</Text>
+                         </View>
+                     )}
                  />
              </ScrollView>
          );
@@ -74,6 +72,7 @@ import { setLoading } from '../actions/utilsAction';
 
 
 const styles = StyleSheet.create({
+
     loading: {
         paddingVertical: 20,
         borderTopWidth: 1,
@@ -82,7 +81,11 @@ const styles = StyleSheet.create({
     filterText:{
         borderColor: "#FF0000",
         color: "#FFF"
-}
+},
+    textView:{
+
+    }
+
 });
 
 export default list;
