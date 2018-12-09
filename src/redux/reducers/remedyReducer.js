@@ -8,7 +8,7 @@ import {
 
 
 const initialState = {
-    list: [],
+    remedy: [],
     page: 1,
     section: '',
     selected: '',
@@ -26,7 +26,7 @@ const remedyReducer = (state = initialState, action) => {
         case LIST_REMEDY:
             return {
                 ...state,
-                list: action.list
+                remedy: action.remedy
             };
         case ADD_PAGE:
             return {
@@ -38,11 +38,6 @@ const remedyReducer = (state = initialState, action) => {
             return {
                 ...state,
                 page: 1
-            };
-        case SELECT_REMEDY:
-            return {
-                ...state,
-                selected: action.payload
             };
         case DETAILS_REMEDY:
             return {

@@ -10,6 +10,7 @@ import {querySection} from'../../database/allSchema'
 import DataItem from './sectionListItem';
 import {SearchBar } from 'react-native-elements';
 import { setLoading } from '../actions/utilsAction';
+import {connect} from 'react-redux';
 
 
 
@@ -18,7 +19,6 @@ import { setLoading } from '../actions/utilsAction';
          super(props);
          this.state={
              query:"",
-             list:[]
          };
          //binding
          this.searchChanged = this.searchChanged.bind(this);
@@ -27,11 +27,8 @@ import { setLoading } from '../actions/utilsAction';
      componentWillMount() {
          const section = this.props.section;
          console.log(section+"done");
-         const data = querySection(section);
-         console.log(data.length);
-         this.setState({
-             list:data
-         })
+         this.props.querySection(section);
+
      }
 
      _renderItem = (listData)=> {
@@ -87,5 +84,16 @@ const styles = StyleSheet.create({
     }
 
 });
+const mapStateToProps = (state) => ({
+    remedy: state.remedy.remedy
+});
 
-export default list;
+
+const mapDispatchToProps = dispatch => ({
+    querySection: (section) => dispatch(querySection(section)),
+    setLoading: (param) => dispatch(setLoading(param)),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(list)
+
+

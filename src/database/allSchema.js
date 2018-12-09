@@ -30,14 +30,19 @@ const allSchemas ={
 
 function querySection(section) {
     Realm.open(allSchemas).then(realm => {
-        let list = realm.objects("Remedies").filtered(`id CONTAINS[c] "${section}"`);
+        let remedy = realm.objects("Remedies").filtered(`id CONTAINS[c] "${section}"`);
     return(dispatch: any) =>{
         dispatch({
             type: LIST_REMEDY,
-            list: list,
+            remedy: remedy,
         })
     }
-}
+})}
+
+    module.exports = {
+        querySection
+    };
+
 
 /**
 export const querySection = (section) => new Promise((resolve, reject) => {
