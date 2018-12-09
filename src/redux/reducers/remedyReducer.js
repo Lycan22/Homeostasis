@@ -3,13 +3,12 @@ import {
     ADD_PAGE,
     SET_SECTION,
     RESET_PAGE,
-    SELECT_REMEDY,
     DETAILS_REMEDY,
 } from "../actions/actionType";
 
 
 const initialState = {
-    remedy: [],
+    list: [],
     page: 1,
     section: '',
     selected: '',
@@ -27,7 +26,7 @@ const remedyReducer = (state = initialState, action) => {
         case LIST_REMEDY:
             return {
                 ...state,
-                remedy: action.remedy
+                list: action.list
             };
         case ADD_PAGE:
             return {
