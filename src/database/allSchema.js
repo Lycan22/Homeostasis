@@ -27,21 +27,25 @@ const allSchemas ={
     readOnly:true
 };
 
+export const querySection = (section) => {
+    return (dispatch) => {
+        Realm.open(allSchemas).then(realm => {
+            let remedy = realm.objects("Remedies").filtered(`id CONTAINS[c] "${section}"`);
+            dispatch(getRemedyList(remedy));
+            console.log(getRemedyList(remedy.length))
+            });
 
-function querySection(section) {
-    Realm.open(allSchemas).then(realm => {
-        let remedy = realm.objects("Remedies").filtered(`id CONTAINS[c] "${section}"`);
-    return(dispatch: any) =>{
-        dispatch({
-            type: LIST_REMEDY,
-            remedy: remedy,
-        })
     }
-})}
+};
 
-    module.exports = {
-        querySection
-    };
+export const getRemedyList = (remedy) => {
+
+    return {
+        type: LIST_REMEDY,
+        remedy: remedy
+    }
+};
+
 
 
 /**
