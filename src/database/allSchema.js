@@ -3,7 +3,7 @@ const Realm = require('realm');
 import {Platform} from 'react-native';
 import {LIST_REMEDY} from './../redux/actions/actionType'
 
-const RemediesSchema = {
+export const RemediesSchema = {
     name: 'Remedies',
     properties: {
         id: 'string?',

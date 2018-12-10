@@ -2,17 +2,16 @@
 
 import React, { Component } from 'react';
 import {
-    StyleSheet,ScrollView,
-    Text,FlatList,
-    View,ActivityIndicator
+    StyleSheet, ScrollView,
+    Text, FlatList,
+    View, ActivityIndicator, Platform
 } from 'react-native';
-import {querySection} from'../../database/allSchema'
 import DataItem from './sectionListItem';
+import {allSchemas} from "../../database/allSchema";
 import {SearchBar } from 'react-native-elements';
 const Realm = require('realm');
 import { setLoading } from '../actions/utilsAction';
-
-
+import fs from "react-native-fs";
 
  class list extends Component {
      constructor(props) {
@@ -27,7 +26,13 @@ import { setLoading } from '../actions/utilsAction';
      componentWillMount() {
          const section = this.props.section;
          console.log(section+"done");
-         querySection(section);
+         Realm.open(allSchemas)
+             .then(realm => {
+                let list = realm.objects('Remedies');
+                 let list_results = list.filtered(`id CONTAINS[c] "${section}"`);
+                 console.log(list_results.length+'done');
+                 realm.close();
+             });
      }
 
      _renderItem = (listData)=> {
@@ -56,8 +61,8 @@ import { setLoading } from '../actions/utilsAction';
                      keyExtractor={this._keyExtractor}
                      renderItem={({ item }) => (
                          <View style={{ flex: 1, flexDirection: "column" }}>
-                             <Text style={styles.textView}>{item[0].id}</Text>
-                             <Text style={styles.textView}>{item[1].location}</Text>
+                             <Text style={styles.textView}>{item.id}</Text>
+                             <Text style={styles.textView}>{item.location}</Text>
                          </View>
                      )}
                  />
