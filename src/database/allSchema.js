@@ -19,7 +19,7 @@ const RemediesSchema = {
 };
 
 
-const allSchemas ={
+export const allSchemas ={
     path: Platform.OS === 'ios'
         ? fs.MainBundlePath + '/home.realm'
         : fs.DocumentDirectoryPath + '/home.realm',

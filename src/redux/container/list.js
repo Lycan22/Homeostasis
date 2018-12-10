@@ -9,6 +9,7 @@ import {
 import {querySection} from'../../database/allSchema'
 import DataItem from './sectionListItem';
 import {SearchBar } from 'react-native-elements';
+const Realm = require('realm');
 import { setLoading } from '../actions/utilsAction';
 
 
