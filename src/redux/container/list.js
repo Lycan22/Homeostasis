@@ -26,8 +26,7 @@ import { setLoading } from '../actions/utilsAction';
      componentWillMount() {
          const section = this.props.section;
          console.log(section+"done");
-         this.props.querySection(section);
-
+         querySection(section);
      }
 
      _renderItem = (listData)=> {

@@ -1,5 +1,5 @@
 import fs from "react-native-fs";
-import Realm from "realm";
+const Realm = require('realm');
 import {Platform} from 'react-native';
 import {LIST_REMEDY} from './../redux/actions/actionType'
 
@@ -33,6 +33,7 @@ export function querySection(section) {
             const list = realm.objects('Remedies');
             const list_results = list.filtered(`id CONTAINS[c] "${section}"`);
             resolve(list_results);
+            console.log(list_results.length);
             setTimeout(() => {
                 realm.close();
             }, 0);
