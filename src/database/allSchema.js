@@ -1,7 +1,5 @@
 import fs from "react-native-fs";
-const Realm = require('realm');
 import {Platform} from 'react-native';
-import {LIST_REMEDY} from './../redux/actions/actionType'
 
 export const RemediesSchema = {
     name: 'Remedies',
