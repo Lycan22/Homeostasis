@@ -17,6 +17,7 @@ import { setLoading } from '../actions/utilsAction';
          super(props);
          this.state={
              query:"",
+             result:[],
          };
          //binding
          this.searchChanged = this.searchChanged.bind(this);
@@ -29,15 +30,13 @@ import { setLoading } from '../actions/utilsAction';
              .then(realm => {
                 let list = realm.objects('Remedies');
                  let list_results = list.filtered(`id CONTAINS[c] "${section}"`);
-                 console.log(list_results.length+'done');
                  realm.close();
+                 this.setState({
+                     result:[list_results]
+                 });
              });
-     }
 
-     _renderItem = (listData)=> {
-         return (
-             <DataItem listData={listData}/>);
-     };
+     }
 
      _keyExtractor = (item, index) => item.id;
 
@@ -55,8 +54,8 @@ import { setLoading } from '../actions/utilsAction';
                      onChangeText={text=>this.searchChanged(text)}
                      placeholder='Type Here...' />
                  <FlatList
-                     onEndReache={()=>this.state.list.length}
-                     data={this.state.list}
+                     onEndReache={()=>this.state.result.length}
+                     data={this.state.result}
                      keyExtractor={this._keyExtractor}
                      renderItem={({ item }) => (
                          <View style={{ flex: 1, flexDirection: "column" }}>
