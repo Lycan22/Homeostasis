@@ -27,6 +27,7 @@ export const allSchemas ={
     readOnly:true
 };
 
+/**
 export function querySection(section) {
     return new Promise((resolve, reject) => {
         Realm.open(allSchemas).then(realm => {
