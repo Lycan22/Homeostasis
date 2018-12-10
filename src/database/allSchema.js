@@ -27,27 +27,18 @@ const allSchemas ={
     readOnly:true
 };
 
-export const querySection = (section) => {
-    return (dispatch) => {
+export function querySection(section) {
+    return new Promise((resolve, reject) => {
         Realm.open(allSchemas).then(realm => {
-            let remedy = realm.objects("Remedies").filtered(`id CONTAINS[c] "${section}"`);
-            dispatch(getRemedyList(remedy));
-            console.log(getRemedyList(remedy.length))
-            });
-
-    }
-};
-
-export const getRemedyList = (remedy) => {
-
-    return {
-        type: LIST_REMEDY,
-        remedy: remedy
-    }
-};
-
-
-
+            const list = realm.objects('Remedies');
+            const list_results = list.filtered(`id CONTAINS[c] "${section}"`);
+            resolve(list_results);
+            setTimeout(() => {
+                realm.close();
+            }, 0);
+        }).catch(e => console.log(e));
+    });
+}
 /**
 export const querySection = (section) => new Promise((resolve, reject) => {
     Realm.open(allSchemas).then(realm => {

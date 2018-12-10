@@ -10,7 +10,6 @@ import {querySection} from'../../database/allSchema'
 import DataItem from './sectionListItem';
 import {SearchBar } from 'react-native-elements';
 import { setLoading } from '../actions/utilsAction';
-import {connect} from 'react-redux';
 
 
 
@@ -84,16 +83,8 @@ const styles = StyleSheet.create({
     }
 
 });
-const mapStateToProps = (state) => ({
-    remedy: state.remedy.remedy
-});
 
 
-const mapDispatchToProps = dispatch => ({
-    querySection: (section) => dispatch(querySection(section)),
-    setLoading: (param) => dispatch(setLoading(param)),
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(list)
+export default list;
 
 
