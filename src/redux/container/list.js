@@ -11,7 +11,6 @@ import {allSchemas} from "../../database/allSchema";
 import {SearchBar } from 'react-native-elements';
 const Realm = require('realm');
 import { setLoading } from '../actions/utilsAction';
-import fs from "react-native-fs";
 
  class list extends Component {
      constructor(props) {
