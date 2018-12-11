@@ -49,7 +49,15 @@ import DataItem from './sectionListItem';
          this.setState({query: text});
      }
 
+
      render() {
+         let filteredLoads = this.state.data.filter(
+             (text) => {
+                 return(
+                     text['remedy'].toLowerCase().indexOf(this.state.query.toLowerCase()) !== -1
+                     || text['synopsis'].toLowerCase().indexOf(this.state.query.toLowerCase()) !== -1
+                 )}
+         );
          return (
              <ScrollView style={{flex: 1}}>
                  <SearchBar
@@ -60,7 +68,7 @@ import DataItem from './sectionListItem';
                      placeholder='Type Here...'/>
                  <FlatList
                      onEndReache={() => this.state.data.length}
-                     data={this.state.data}
+                     data={ filteredLoads}
                      extraData={this.state}
                      keyExtractor={item => item.id.toString()}
                      renderItem={this._renderItem}
