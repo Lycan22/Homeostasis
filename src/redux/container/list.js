@@ -9,13 +9,15 @@ import {
 import {allSchemas} from "../../database/allSchema";
 import {SearchBar } from 'react-native-elements';
 const Realm = require('realm');
+import DataItem from './sectionListItem';
 
  class list extends Component {
+
      constructor(props) {
          super(props);
-         this.state={
-             query:"",
-             data:[],
+         this.state = {
+             query: "",
+             data: [],
          };
          //binding
          this.searchChanged = this.searchChanged.bind(this);
@@ -23,11 +25,12 @@ const Realm = require('realm');
 
      componentWillMount() {
          const section = this.props.section;
-         console.log(section+"done");
+         console.log(section + "done");
          Realm.open(allSchemas)
-             .then(realm => {this.setState({
-                 data: realm.objects("Remedies").filtered(`id CONTAINS[c] "${section}"`),
-             });
+             .then(realm => {
+                 this.setState({
+                     data: realm.objects("Remedies").filtered(`id CONTAINS[c] "${section}"`),
+                 });
                  //realm.close();
                  console.log(data.length)
 
@@ -36,9 +39,14 @@ const Realm = require('realm');
          })
      }
 
+     _renderItem = (items) => {
+         return (
+             <DataItem items={items}/>);
+     };
+
 
      searchChanged(text) {
-         this.setState({ query: text });
+         this.setState({query: text});
      }
 
      render() {
@@ -48,20 +56,14 @@ const Realm = require('realm');
                      round
                      showLoading
                      lightTheme
-                     onChangeText={text=>this.searchChanged(text)}
-                     placeholder='Type Here...' />
+                     onChangeText={text => this.searchChanged(text)}
+                     placeholder='Type Here...'/>
                  <FlatList
-                     onEndReache={()=>this.state.data.length}
+                     onEndReache={() => this.state.data.length}
                      data={this.state.data}
                      extraData={this.state}
                      keyExtractor={item => item.id.toString()}
-                     renderItem={({ item }) => (
-                         <View style={{ flex: 1, flexDirection: "column" }}>
-                             <Text style={styles.textView}>{item.id}</Text>
-                             <Text style={styles.textView}>{item.remedy}</Text>
-                             <Text style={styles.textView}>{item.synopsis}</Text>
-                         </View>
-                     )}
+                     renderItem={this._renderItem}
                  />
              </ScrollView>
          );
