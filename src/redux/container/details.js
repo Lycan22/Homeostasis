@@ -3,65 +3,48 @@
 import React, { Component } from 'react';
 import {StyleSheet, Text, View,ScrollView} from 'react-native';
 import PropTypes from 'prop-types';
-import {connect} from 'react-redux';
 import { Card } from 'react-native-elements';
-import PinchZoomView from 'react-native-pinch-zoom-view';
-
 
  class details extends Component {
     constructor(props) {
         super(props);
     }
 
-    componentDidMount(){
+    componentWillMount(){
         const id = this.props.data || 'No Data';
-        //console.log(id+"receive");
-        this.props.getDetails(id);
+        console.log(id+"receive");
     }
 
 
     render() {
         return (
             <ScrollView style={{flex: 1}}>
-                <PinchZoomView>
-                <Card
-                    title={this.props.remedy.remedy}>
+               /** <Card
+                    title={this.props.items.item.remedy}>
                     <Text style={styles.textTitle}>Comcomitants :
-                        <Text style={styles.contextText}> {this.props.remedy.concomitants}</Text></Text>
+                        <Text style={styles.contextText}> {this.props.items.item.concomitants}</Text></Text>
 
                     <Text style={styles.textTitle}>Location :
-                        <Text style={styles.contextText}> {this.props.remedy.location}</Text></Text>
+                        <Text style={styles.contextText}> {this.props.items.item.location}</Text></Text>
 
                     <Text style={styles.textTitle}>Aetiology :
-                        <Text style={styles.contextText}> {this.props.remedy.aetiology}</Text></Text>
+                        <Text style={styles.contextText}> {this.props.items.item.aetiology}</Text></Text>
 
                     <Text style={styles.textTitle}>Modalities :
-                        <Text style={styles.contextText}>{this.props.remedy.modalities}</Text></Text>
+                        <Text style={styles.contextText}>{this.props.items.item.modalities}</Text></Text>
 
                     <Text style={styles.textTitle}>Synopsis :
-                        <Text style={styles.contextText}>{this.props.remedy.synopsis}</Text></Text>
+                        <Text style={styles.contextText}>{this.props.items.item.synopsis}</Text></Text>
 
                     <Text style={styles.textTitle}>Keynote :
-                        <Text style={styles.contextText}>{this.props.remedy.keynote}</Text></Text>
-                </Card>
-                </PinchZoomView>
+                        <Text style={styles.contextText}>{this.props.items.item.keynote}</Text></Text>
+                </Card>**/
             </ScrollView>
 
         );
     }
 }
 
-// "Redux States" -> Component props
-const mapStateToProps = (state) => ({
-    remedy: state.remedy.selectedRem
-});
-
-const mapDispatchToProps = dispatch => ({
-    getDetails: (id) => dispatch(remedyDetails(id)),
-    selectDetails:(id) =>dispatch(selectRemedyDetails(id))
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(details)
 
 const styles = StyleSheet.create({
     container: {
@@ -80,3 +63,5 @@ const styles = StyleSheet.create({
 
     }
 });
+
+export default details

@@ -8,7 +8,7 @@ import {
 } from 'react-native';
 import {allSchemas} from "../../database/allSchema";
 import {SearchBar } from 'react-native-elements';
-const Realm = require('realm');
+import Realm from 'realm';
 import DataItem from './sectionListItem';
 
  class list extends Component {
@@ -32,8 +32,6 @@ import DataItem from './sectionListItem';
                      data: realm.objects("Remedies").filtered(`id CONTAINS[c] "${section}"`),
                  });
                  //realm.close();
-                 console.log(data.length)
-
              }).catch(error => {
              console.log(error);
          })
