@@ -10,8 +10,6 @@ import {
     View,
     ActivityIndicator,
 } from 'react-native';
-import { setSearchKey } from '../actions/searchAction';
-import {connect} from 'react-redux';
 import {SearchBar } from 'react-native-elements';
 import {Actions} from "react-native-router-flux";
 import { Card} from 'react-native-elements';
@@ -35,7 +33,7 @@ class result extends Component {
         clearTimeout(this.timer);
 
         this.timer = setTimeout(()=>{
-            this.props.loadSearch(text);
+          //  this.props.loadSearch(text);
         }, 1000);
     };
 
@@ -101,17 +99,6 @@ const styles = StyleSheet.create({
 
 });
 
-const mapStateToProps = (state) => ({
-    remedy: state.search.remedy
-});
-
-const mapDispatchToProps = (dispatch)=>({
-    setSearchKey: (text) => dispatch(setSearchKey(text)),
-    loadSearch: (text) => dispatch(advSearch(text)),
-    selectId: (id) => dispatch(selectRemedyDetails(id)),
-    setLoading: (param) => dispatch(setLoading(param))
-
-});
 
 
-export default connect(mapStateToProps, mapDispatchToProps)(result)
+export default result
