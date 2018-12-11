@@ -4,13 +4,11 @@ import React, { Component } from 'react';
 import {
     StyleSheet, ScrollView,
     Text, FlatList,
-    View, ActivityIndicator, Platform
+    View
 } from 'react-native';
-import DataItem from './sectionListItem';
 import {allSchemas} from "../../database/allSchema";
 import {SearchBar } from 'react-native-elements';
 const Realm = require('realm');
-import { setLoading } from '../actions/utilsAction';
 
  class list extends Component {
      constructor(props) {
