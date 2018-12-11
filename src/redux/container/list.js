@@ -17,7 +17,7 @@ import { setLoading } from '../actions/utilsAction';
          super(props);
          this.state={
              query:"",
-             result:[],
+             data:[],
          };
          //binding
          this.searchChanged = this.searchChanged.bind(this);
@@ -27,18 +27,15 @@ import { setLoading } from '../actions/utilsAction';
          const section = this.props.section;
          console.log(section+"done");
          Realm.open(allSchemas)
-             .then(realm => {
-                let list = realm.objects('Remedies');
-                 let list_results = list.filtered(`id CONTAINS[c] "${section}"`);
-                 realm.close();
-                 this.setState({
-                     result:[list_results]
-                 });
+             .then(realm => {this.setState({
+                 data: realm.objects("Remedies").filtered(`id CONTAINS[c] "${section}"`),
              });
+                 //realm.close();
+                 console.log(data.length)
 
+             });
      }
 
-     _keyExtractor = (item, index) => item.id;
 
      searchChanged(text) {
          this.setState({ query: text });
@@ -54,9 +51,9 @@ import { setLoading } from '../actions/utilsAction';
                      onChangeText={text=>this.searchChanged(text)}
                      placeholder='Type Here...' />
                  <FlatList
-                     onEndReache={()=>this.state.result.length}
-                     data={this.state.result}
-                     keyExtractor={this._keyExtractor}
+                     onEndReache={()=>this.state.data.length}
+                     data={this.state.data}
+                     keyExtractor={item => item.id.toString()}
                      renderItem={({ item }) => (
                          <View style={{ flex: 1, flexDirection: "column" }}>
                              <Text style={styles.textView}>{item.id}</Text>
