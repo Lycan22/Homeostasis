@@ -58,7 +58,8 @@ const Realm = require('realm');
                      renderItem={({ item }) => (
                          <View style={{ flex: 1, flexDirection: "column" }}>
                              <Text style={styles.textView}>{item.id}</Text>
-                             <Text style={styles.textView}>{item.location}</Text>
+                             <Text style={styles.textView}>{item.remedy}</Text>
+                             <Text style={styles.textView}>{item.synopsis}</Text>
                          </View>
                      )}
                  />
