@@ -34,7 +34,6 @@ const Realm = require('realm');
              });
      }
 
-
      searchChanged(text) {
          this.setState({ query: text });
      }
@@ -77,11 +76,8 @@ const styles = StyleSheet.create({
         color: "#FFF"
 },
     textView:{
-
     }
-
 });
-
 
 export default list;
 
