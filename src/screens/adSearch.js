@@ -54,15 +54,5 @@ const styles = StyleSheet.create({
     }
 });
 
-const mapStateToProps = (state) => ({
-    setAdvKey: state.search.setAdvKey
-});
 
-/** dispatch actions */
-const mapDispatchToProps = dispatch => ({
-    setAdvKey: (advKey) => dispatch(setAdvKey(advKey)),
-    loadSearch:(advkey) => dispatch(advSearch(advkey)),
-
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(search)
+export default search
