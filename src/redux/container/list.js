@@ -31,8 +31,11 @@ const Realm = require('realm');
                  //realm.close();
                  console.log(data.length)
 
-             });
+             }).catch(error => {
+             console.log(error);
+         })
      }
+
 
      searchChanged(text) {
          this.setState({ query: text });
@@ -50,6 +53,7 @@ const Realm = require('realm');
                  <FlatList
                      onEndReache={()=>this.state.data.length}
                      data={this.state.data}
+                     extraData={this.state}
                      keyExtractor={item => item.id.toString()}
                      renderItem={({ item }) => (
                          <View style={{ flex: 1, flexDirection: "column" }}>
