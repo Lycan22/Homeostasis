@@ -2,8 +2,7 @@
 
 import React, { Component } from 'react';
 import {StyleSheet, Text, View,ScrollView} from 'react-native';
-import PropTypes from 'prop-types';
-import { Card } from 'react-native-elements';
+
 
  class details extends Component {
     constructor(props) {
@@ -11,37 +10,13 @@ import { Card } from 'react-native-elements';
     }
 
     componentWillMount(){
-        const id = this.props.data || 'No Data';
+        const id = this.props.data_id || 'No Data';
         console.log(id+"receive");
     }
 
 
     render() {
-        return (
-            <ScrollView style={{flex: 1}}>
-               /** <Card
-                    title={this.props.items.item.remedy}>
-                    <Text style={styles.textTitle}>Comcomitants :
-                        <Text style={styles.contextText}> {this.props.items.item.concomitants}</Text></Text>
-
-                    <Text style={styles.textTitle}>Location :
-                        <Text style={styles.contextText}> {this.props.items.item.location}</Text></Text>
-
-                    <Text style={styles.textTitle}>Aetiology :
-                        <Text style={styles.contextText}> {this.props.items.item.aetiology}</Text></Text>
-
-                    <Text style={styles.textTitle}>Modalities :
-                        <Text style={styles.contextText}>{this.props.items.item.modalities}</Text></Text>
-
-                    <Text style={styles.textTitle}>Synopsis :
-                        <Text style={styles.contextText}>{this.props.items.item.synopsis}</Text></Text>
-
-                    <Text style={styles.textTitle}>Keynote :
-                        <Text style={styles.contextText}>{this.props.items.item.keynote}</Text></Text>
-                </Card>**/
-            </ScrollView>
-
-        );
+        return (null);
     }
 }
 

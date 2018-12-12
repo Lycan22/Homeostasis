@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component }  from 'react';
 import {
     StyleSheet,
     Text,
@@ -11,7 +11,7 @@ import { Card, Button } from 'react-native-elements';
 /**
  *
  */
-export default class sectionListItem extends React.PureComponent {
+export default class sectionListItem extends Component {
     constructor(props) {
         super(props);
     }
@@ -32,7 +32,7 @@ export default class sectionListItem extends React.PureComponent {
                             <Button
                                 raised
                                 backgroundColor='#03A9F4'
-                                onPress={() =>{Actions.details({data:this.state.items.item.id})}}
+                                onPress={() =>{Actions.details({data_id:this.props.items.item.id})}}
                                 buttonStyle={{borderRadius: 0, marginLeft: 0, marginRight: 0, marginBottom: 0}}
                                 title='More detail' />
                         </Card>
