@@ -10,7 +10,7 @@ import {allSchemas} from "../../database/allSchema";
     constructor(props) {
         super(props);
         this.state = {
-           result: [],
+           result:[],
         };
     }
 
@@ -20,15 +20,15 @@ import {allSchemas} from "../../database/allSchema";
         Realm.open(allSchemas)
             .then(realm => {
                 this.setState({
-                    result : realm.objects("Remedies").filtered('id = "104"'),
+                    result : realm.objects("Remedies").filtered(`id = "${id}"`),
                 });
                 //realm.close();
             }
             ).catch(error => {
             console.log(error);
 
-        })
-
+        });
+console.log(this.state.result.length)
     }
 
 
