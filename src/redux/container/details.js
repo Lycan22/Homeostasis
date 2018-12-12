@@ -17,18 +17,12 @@ import {allSchemas} from "../../database/allSchema";
     componentWillMount(){
         const id = this.props.data_id || 'No Data';
         console.log(id+"receive");
-        Realm.open(allSchemas)
-            .then(realm => {
-                this.setState({
-                    result : realm.objects("Remedies").filtered(`id = "${id}"`),
-                });
-                //realm.close();
-            }
-            ).catch(error => {
-            console.log(error);
+            Realm.open(allSchemas).then(realm => {
+                let list = realm.objects("Remedies").filtered(`id = "${id}"`);
+                console.log(list[0].synopsis+"done")
+            }).catch((error) => (error));
 
-        });
-console.log(this.state.result.length)
+
     }
 
 
