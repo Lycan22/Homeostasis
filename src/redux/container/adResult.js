@@ -13,7 +13,6 @@ import {
 import {SearchBar } from 'react-native-elements';
 import {Actions} from "react-native-router-flux";
 import { Card} from 'react-native-elements';
-import {setLoading} from '../actions/utilsAction'
 
 
 
@@ -25,8 +24,6 @@ class result extends Component {
 
     componentWillMount(){
         this.timer = null;
-        this.props.loadSearch();
-        this.props.setLoading(true);
     }
 
     makeSearch = (text) => {
