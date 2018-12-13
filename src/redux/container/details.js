@@ -1,10 +1,11 @@
 'use strict';
 
 import React, { Component } from 'react';
-import {StyleSheet, Text, View,ScrollView} from 'react-native';
+import {StyleSheet, Text, View, ScrollView, FlatList} from 'react-native';
 import { Card } from 'react-native-elements';
 import Realm from "realm";
 import {allSchemas} from "../../database/allSchema";
+import DataItem from "./sectionListItem";
 
  class details extends Component {
     constructor(props) {
@@ -27,31 +28,42 @@ import {allSchemas} from "../../database/allSchema";
 
     }
 
+     _renderItem = ({item}) => {
+         return (
+             <Card
+                         title={item.remedy}>
+                         <Text style={styles.textTitle}>Concomitants :
+                             <Text style={styles.contextText}> {item.concomitants}</Text></Text>
+
+                         <Text style={styles.textTitle}>Location :
+                             <Text style={styles.contextText}> {item.location}</Text></Text>
+
+                         <Text style={styles.textTitle}>Aetiology :
+                             <Text style={styles.contextText}> {item.aetiology}</Text></Text>
+
+                         <Text style={styles.textTitle}>Modalities :
+                             <Text style={styles.contextText}>{item.modalities}</Text></Text>
+
+                         <Text style={styles.textTitle}>Synopsis :
+                             <Text style={styles.contextText}>{item.synopsis}</Text></Text>
+
+                         <Text style={styles.textTitle}>Keynote :
+                             <Text style={styles.contextText}>{item.keynote}</Text></Text>
+             </Card>
+
+         )};
 
 
     render() {
         return (
             <ScrollView style={{flex: 1}}>
-               <Card
-                    title={this.state.result.remedy}>
-                    <Text style={styles.textTitle}>Concomitants :
-                        <Text style={styles.contextText}> {this.state.result.concomitants}</Text></Text>
-
-                    <Text style={styles.textTitle}>Location :
-                        <Text style={styles.contextText}> {this.state.result.location}</Text></Text>
-
-                    <Text style={styles.textTitle}>Aetiology :
-                        <Text style={styles.contextText}> {this.state.result.aetiology}</Text></Text>
-
-                    <Text style={styles.textTitle}>Modalities :
-                        <Text style={styles.contextText}>{this.state.result.modalities}</Text></Text>
-
-                    <Text style={styles.textTitle}>Synopsis :
-                        <Text style={styles.contextText}>{this.state.result.synopsis}</Text></Text>
-
-                    <Text style={styles.textTitle}>Keynote :
-                        <Text style={styles.contextText}>{this.state.result.keynote}</Text></Text>
-                </Card>
+                <FlatList
+                    onEndReache={() => this.state.result.length}
+                    data={ this.state.result}
+                    extraData={this.state}
+                    keyExtractor={item => item.id.toString()}
+                    renderItem={this._renderItem}
+                />
             </ScrollView>
 
         );
