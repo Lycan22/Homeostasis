@@ -18,10 +18,10 @@ import {allSchemas} from "../../database/allSchema";
         const id = this.props.data_id || 'No Data';
         console.log(id+"receive");
             Realm.open(allSchemas).then(realm => {
-                let list = realm.objects("Remedies").filtered(`id = "${id}"`);
-                console.log(list.length);
+                let item = realm.objects("Remedies").filtered(`id = "${id}"`);
+                console.log(item.length);
                 this.setState({
-                    result: list
+                    result: item
                 });
             }).catch((error) => (error));
 
@@ -34,7 +34,7 @@ import {allSchemas} from "../../database/allSchema";
             <ScrollView style={{flex: 1}}>
                <Card
                     title={this.state.result.remedy}>
-                    <Text style={styles.textTitle}>Comcomitants :
+                    <Text style={styles.textTitle}>Concomitants :
                         <Text style={styles.contextText}> {this.state.result.concomitants}</Text></Text>
 
                     <Text style={styles.textTitle}>Location :
