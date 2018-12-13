@@ -28,7 +28,7 @@ import DataItem from './sectionListItem';
          console.log(section + "done");
          Realm.open(allSchemas).then(realm => {
              let list = realm.objects("Remedies").filtered(`id CONTAINS[c] "${section}"`);
-             console.log(list.length);
+          //   console.log(list.length);
              this.setState({
                  data: list
              });

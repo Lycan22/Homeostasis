@@ -17,10 +17,10 @@ import DataItem from "./sectionListItem";
 
     componentWillMount(){
         const id = this.props.data_id || 'No Data';
-        console.log(id+"receive");
+      //  console.log(id+"receive");
             Realm.open(allSchemas).then(realm => {
                 let item = realm.objects("Remedies").filtered(`id = "${id}"`);
-                console.log(item.length);
+               // console.log(item.length);
                 this.setState({
                     result: item
                 });
