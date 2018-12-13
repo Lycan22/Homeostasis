@@ -20,6 +20,9 @@ class result extends Component {
 
     constructor(props) {
         super(props);
+        this.state = {
+            adData: [],
+        };
     }
 
     componentWillMount(){
@@ -30,7 +33,7 @@ class result extends Component {
         clearTimeout(this.timer);
 
         this.timer = setTimeout(()=>{
-          //  this.props.loadSearch(text);
+          // this.props.loadSearch(text);
         }, 1000);
     };
 
