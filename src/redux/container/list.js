@@ -26,16 +26,16 @@ import DataItem from './sectionListItem';
      componentWillMount() {
          const section = this.props.section;
          console.log(section + "done");
-         Realm.open(allSchemas)
-             .then(realm => {
-                 this.setState({
-                     data: realm.objects("Remedies").filtered(`id CONTAINS[c] "${section}"`),
-                 });
-                 //realm.close();
-             }).catch(error => {
-             console.log(error);
-         })
+         Realm.open(allSchemas).then(realm => {
+             let list = realm.objects("Remedies").filtered(`id CONTAINS[c] "${section}"`);
+             console.log(list.length);
+             this.setState({
+                 data: list
+             });
+         }).catch((error) => (error));
+
      }
+
 
      _renderItem = (items) => {
          return (
