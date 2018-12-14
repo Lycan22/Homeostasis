@@ -11,12 +11,12 @@ class search extends Component {
         return (
             <View style={styles.container}>
                 <Text style={styles.textTitle}>Advance Searching for CLAMS </Text>
-                <Button onPress={() =>{Actions.list({words: 'keynote'});}}>Keynote Searching</Button>
-                <Button onPress={() =>{Actions.list({words: 'concomitants'});}}>Concomitants Searching</Button>
-                <Button onPress={() =>{Actions.list({words: 'location'});}}>Location Searching</Button>
-                <Button onPress={() =>{Actions.list({words: 'aetiology'});}}>Aetiology Searching</Button>
-                <Button onPress={() =>{Actions.list({words: 'modalities'});}}>Modalities Searching</Button>
-                <Button onPress={() =>{Actions.list({words: 'constitutional'});}}>Constitutional Searching</Button>
+                <Button onPress={() =>{Actions.adResult({words: 'keynote'});}}>Keynote Searching</Button>
+                <Button onPress={() =>{Actions.adResult({words: 'concomitants'});}}>Concomitants Searching</Button>
+                <Button onPress={() =>{Actions.adResult({words: 'location'});}}>Location Searching</Button>
+                <Button onPress={() =>{Actions.adResult({words: 'aetiology'});}}>Aetiology Searching</Button>
+                <Button onPress={() =>{Actions.adResult({words: 'modalities'});}}>Modalities Searching</Button>
+                <Button onPress={() =>{Actions.adResult({words: 'constitutional'});}}>Constitutional Searching</Button>
             </View>
             );
     }

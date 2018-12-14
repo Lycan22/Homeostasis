@@ -13,6 +13,8 @@ import {
 import {SearchBar } from 'react-native-elements';
 import {Actions} from "react-native-router-flux";
 import { Card} from 'react-native-elements';
+import Realm from "realm";
+import {allSchemas} from "../../database/allSchema";
 
 
 
@@ -21,19 +23,32 @@ class result extends Component {
     constructor(props) {
         super(props);
         this.state = {
+            row:"",
             adData: [],
         };
     }
 
     componentWillMount(){
         this.timer = null;
+        const row = this.props.words;
+        this.setState({
+            row:row
+        });
+        console.log(this.state.row+"ok");
+
     }
 
     makeSearch = (text) => {
         clearTimeout(this.timer);
 
         this.timer = setTimeout(()=>{
-          // this.props.loadSearch(text);
+            Realm.open(allSchemas).then(realm => {
+                let result = realm.objects("Remedies").filtered(`${this.state.row} CONTAINS[c] "${text}"`);
+                 console.log(result.length);
+                this.setState({
+                    adData: result
+                });
+            }).catch((error) => (error));
         }, 1000);
     };
 
@@ -63,7 +78,7 @@ class result extends Component {
                 <FlatList
                     ListFooterComponent={ this.renderLoading.bind(this) }
                     ListHeaderComponent={()=>{
-                        return <Text style={{color: '#3783ba', fontWeight:'bold', margin: 5}}>Result: {this.props.remedy.length}</Text>
+                        return <Text style={{color: '#3783ba', fontWeight:'bold', margin: 5}}>Result: {this.state.}</Text>
                     }}
                     data={this.props.remedy}
                     keyExtractor={this._keyExtractor}
