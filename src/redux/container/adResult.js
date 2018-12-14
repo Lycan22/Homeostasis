@@ -34,8 +34,6 @@ class result extends Component {
         this.setState({
             row:row
         });
-        console.log(this.state.row+"ok");
-
     }
 
     makeSearch = (text) => {
@@ -78,16 +76,16 @@ class result extends Component {
                 <FlatList
                     ListFooterComponent={ this.renderLoading.bind(this) }
                     ListHeaderComponent={()=>{
-                        return <Text style={{color: '#3783ba', fontWeight:'bold', margin: 5}}>Result: {this.state.}</Text>
+                        return <Text style={{color: '#3783ba', fontWeight:'bold', margin: 5}}>Result: {this.state.adData.length}</Text>
                     }}
-                    data={this.props.remedy}
+                    data={this.state.adData}
                     keyExtractor={this._keyExtractor}
                     renderItem={ ({item, index}) => {
                         return (
                             <TouchableOpacity
                                 onPress={()=>{
-                                    this.props.selectId(item.id);
-                                    Actions.details({data:item.id});
+                                    this.state.adData.id(item.id);
+                                    Actions.details({data_id:item.id});
                                 }}>
                                 <Card
                                     title={item.remedy}>
@@ -113,7 +111,5 @@ const styles = StyleSheet.create({
     }
 
 });
-
-
 
 export default result
