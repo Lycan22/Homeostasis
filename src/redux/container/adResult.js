@@ -84,7 +84,6 @@ class result extends Component {
                         return (
                             <TouchableOpacity
                                 onPress={()=>{
-                                    this.state.adData.id(item.id);
                                     Actions.details({data_id:item.id});
                                 }}>
                                 <Card
