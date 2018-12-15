@@ -6,12 +6,10 @@ export const setLoading = (param) => ({
 });
 
 
-export const increaseFont = (param) => ({
+export const increaseFont = () => ({
   type: 'INCREASE_FONT_SIZE',
-  payload: param,
 });
 
-export const decreaseFont = (param) => ({
+export const decreaseFont = () => ({
   type: 'DECREASE_FONT_SIZE',
-  payload: param,
 });
