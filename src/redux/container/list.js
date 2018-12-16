@@ -10,6 +10,7 @@ import {allSchemas} from "../../database/allSchema";
 import {SearchBar } from 'react-native-elements';
 import Realm from 'realm';
 import DataItem from './sectionListItem';
+import CompleteFlatList from 'react-native-complete-flatlist'
 
  class list extends Component {
 
@@ -37,16 +38,22 @@ import DataItem from './sectionListItem';
      }
 
 
-     _renderItem = (items) => {
-         return (
-             <DataItem items={items}/>);
-     };
+     cell = (data,index) => {
+         const item = data.cleanData ? data.cleanData : data;
 
+         console.log(data.cleanData);
+         console.log('data.cleanData will be not null if search bar is not empty. caution, data without search is not same like data with search due to implement the highlight component. data.cleanData is equal to data')
+
+         console.log('this is index number : '+index);
+
+         console.log(item+' this is original data');
+
+         return <Text>{data.remedy}{data.synopsis} </Text>;
+     };
 
      searchChanged(text) {
          this.setState({query: text});
      }
-
 
      render() {
          let filteredLoads = this.state.data.filter(
@@ -58,18 +65,13 @@ import DataItem from './sectionListItem';
          );
          return (
              <ScrollView style={{flex: 1}}>
-                 <SearchBar
-                     round
-                     showLoading
-                     lightTheme
-                     onChangeText={text => this.searchChanged(text)}
-                     placeholder='Type Here...'/>
-                 <FlatList
-                     onEndReache={() => this.state.data.length}
-                     data={ filteredLoads}
-                     extraData={this.state}
-                     keyExtractor={item => item.id.toString()}
-                     renderItem={this._renderItem}
+                 <CompleteFlatList
+                     searchKey={['remedy', 'synopsis']}
+                     placeholder='Type Here...'
+                     highlightColor="yellow"
+                     data={filteredLoads}
+                     renderSeparator={null}
+                     renderItem={this.cell}
                  />
              </ScrollView>
          );

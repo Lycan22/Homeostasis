@@ -11,6 +11,7 @@
     "react": "16.6.0-alpha.8af6728",
     "react-native": "0.57.4",
     "react-native-button": "^2.3.0",
+    "react-native-complete-flatlist": "^1.1.30",
     "react-native-elements": "^0.19.1",
     "react-native-fs": "^2.12.1",
     "react-native-router-flux": "^4.0.5",
