@@ -25,8 +25,10 @@ export default class sectionListItem extends Component {
             <View style={styles.container}>
                         <Card
                             containerStyle={{backgroundColor:'#F0FFF0'}}
-                            title={this.props.data.remedy}>
+                            title='Remedy'
+                            >
                             <Text style={styles.text}>
+                                {this.props.data.remedy}
                                 {this.props.data.synopsis}
                             </Text>
                             <Button
