@@ -1,15 +1,18 @@
 'use strict';
 
 import React, { Component } from 'react';
-import {StyleSheet, Text, Dimensions,TouchableOpacity,View} from 'react-native';
+import {StyleSheet,  Dimensions,TouchableOpacity,View} from 'react-native';
 import { Actions } from 'react-native-router-flux';
 import Button from 'react-native-button';
-
+import { Tooltip, Text } from 'react-native-elements';
 
 class search extends Component {
     render() {
         return (
             <View style={styles.container}>
+                <Tooltip popover={<Text>Info here</Text>}>
+                    <Text>Press me</Text>
+                </Tooltip>
                 <Text style={styles.textTitle}>Advance Searching for CLAMS </Text>
                 <Button onPress={() =>{Actions.adResult({words: 'keynote'});}}>Keynote Searching</Button>
                 <Button onPress={() =>{Actions.adResult({words: 'concomitants'});}}>Concomitants Searching</Button>
