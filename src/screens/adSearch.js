@@ -10,10 +10,21 @@ class search extends Component {
     render() {
         return (
             <View style={styles.container}>
-                <Tooltip popover={<Text>Info here</Text>}>
-                    <Text>Press me</Text>
+                <Tooltip
+                    height={200}
+                    width={200}
+                    backgroundColor={'#BDFCC9'}
+                    popover={<Text>
+                        Keynote Searching: 堂上重點搜尋
+                        Concomitants Searching: 伴症搜尋
+                        Location Searching:位置搜尋
+                        Aetiology Searching:成因搜尋
+                        Modalities Searching:藥征搜尋
+                        Constitutional Searching:體質搜尋
+                    </Text>}>
+                    <Text style={styles.popovers}>Hi, press me</Text>
                 </Tooltip>
-                <Text style={styles.textTitle}>Advance Searching for CLAMS </Text>
+                <Text style={styles.textTitle}> </Text>
                 <Button onPress={() =>{Actions.adResult({words: 'keynote'});}}>Keynote Searching</Button>
                 <Button onPress={() =>{Actions.adResult({words: 'concomitants'});}}>Concomitants Searching</Button>
                 <Button onPress={() =>{Actions.adResult({words: 'location'});}}>Location Searching</Button>
@@ -32,11 +43,19 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         backgroundColor: '#ffffff',
+
+
     },
     textTitle:{
         fontFamily: 'Iowan Old Style',
-        fontSize: 16
-    }
+        fontSize: 30
+    },
+    popovers:{
+        fontFamily: 'Iowan Old Style',
+        fontSize: 18
+    },
+
+
 });
 
 
