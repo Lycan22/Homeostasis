@@ -5,7 +5,6 @@ import {StyleSheet, Text, View, ScrollView, FlatList} from 'react-native';
 import { Card } from 'react-native-elements';
 import Realm from "realm";
 import {allSchemas} from "../../database/allSchema";
-import DataItem from "./sectionListItem";
 
  class details extends Component {
     constructor(props) {

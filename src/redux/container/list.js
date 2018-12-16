@@ -3,11 +3,8 @@
 import React, { Component } from 'react';
 import {
     StyleSheet, ScrollView,
-    Text, FlatList,
-    View
 } from 'react-native';
 import {allSchemas} from "../../database/allSchema";
-import {SearchBar } from 'react-native-elements';
 import Realm from 'realm';
 import DataItem from './sectionListItem';
 import CompleteFlatList from 'react-native-complete-flatlist'

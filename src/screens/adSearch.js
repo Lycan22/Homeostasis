@@ -1,7 +1,7 @@
 'use strict';
 
 import React, { Component } from 'react';
-import {StyleSheet,  Dimensions,TouchableOpacity,View} from 'react-native';
+import {StyleSheet,View} from 'react-native';
 import { Actions } from 'react-native-router-flux';
 import Button from 'react-native-button';
 import { Tooltip, Text } from 'react-native-elements';

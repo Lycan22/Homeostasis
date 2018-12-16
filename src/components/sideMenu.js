@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { StyleSheet, Text, View, Image, ViewPropTypes } from 'react-native';
+import { StyleSheet,  View,  ViewPropTypes } from 'react-native';
 import { Actions } from 'react-native-router-flux';
 import Button from 'react-native-button';
 import { CardSection } from './cardSection';

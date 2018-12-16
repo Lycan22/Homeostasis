@@ -69,7 +69,6 @@ class result extends Component {
             <ScrollView style={{flex: 1}}>
                 <SearchBar
                     round
-                    showLoading
                     lightTheme
                     onChangeText={text=>this.makeSearch(text)}
                     placeholder='請輸入關鍵字搜尋' />

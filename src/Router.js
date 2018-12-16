@@ -1,9 +1,8 @@
 'use strict';
 
 import React, { Component } from "react"
-import {Scene, Router, Actions, Reducer, Drawer, Modal, Stack} from "react-native-router-flux";
+import {Scene, Router, Drawer} from "react-native-router-flux";
 import { connect, Provider } from 'react-redux';
-import {Platform, StyleSheet, Text, View} from 'react-native';
 
 import { configureStore } from './store/store';
 import MainFrag from './screens/main';
@@ -16,7 +15,6 @@ import SideMenu from './components/sideMenu';
 import DetailView from './redux/container/details';
 import AdvanceSearch from './screens/adSearch';
 import AdResult from './redux/container/adResult';
-import fs from "react-native-fs";
 
 
 const store = configureStore();
