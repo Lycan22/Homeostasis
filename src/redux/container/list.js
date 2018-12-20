@@ -2,14 +2,12 @@
 
 import React, { Component } from 'react';
 import {
-    StyleSheet, ScrollView, Text,
+    StyleSheet, ScrollView,
 } from 'react-native';
 import {allSchemas} from "../../database/allSchema";
 import Realm from 'realm';
 import DataItem from './sectionListItem';
 import CompleteFlatList from 'react-native-complete-flatlist'
-import {Button, Card} from "react-native-elements";
-import {Actions} from "react-native-router-flux";
 
  class list extends Component {
 
@@ -47,22 +45,7 @@ import {Actions} from "react-native-router-flux";
 
          console.log(item+' this is original data');
 
-         return(<Card
-             containerStyle={{backgroundColor:'#F0FFF0'}}
-         >
-             <Text style={styles.text}>
-                 {data.remedy}{':'}
-             </Text>
-             <Text style={styles.text}>
-                 {data.synopsis}
-             </Text>
-             <Button
-                 raised
-                 backgroundColor='#03A9F4'
-                 onPress={() =>{Actions.details({data_id:item.id})}}
-                 buttonStyle={{borderRadius: 0, marginLeft: 0, marginRight: 0, marginBottom: 0}}
-                 title='More detail' />
-         </Card>);
+         return(<DataItem item={item} data={data}/>);
      };
 
      searchChanged(text) {

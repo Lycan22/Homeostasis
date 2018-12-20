@@ -18,6 +18,7 @@ export default class sectionListItem extends Component {
 
     static propTypes = {
         item: PropTypes.object.isRequired,
+        data: PropTypes.object.isRequired,
     };
 
     render() {
@@ -27,10 +28,10 @@ export default class sectionListItem extends Component {
                             containerStyle={{backgroundColor:'#F0FFF0'}}
                             >
                             <Text style={styles.text}>
-                                {this.props.item.remedy}{':'}
+                                {this.props.data.remedy}{':'}
                             </Text>
                             <Text style={styles.text}>
-                                {this.props.item.synopsis}
+                                {this.props.data.synopsis}
                             </Text>
                             <Button
                                 raised
