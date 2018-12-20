@@ -43,7 +43,7 @@ class result extends Component {
             Realm.open(allSchemas).then(realm => {
                 let result = realm.objects("Remedies").filtered(`${this.state.row} CONTAINS[c] "${text}"`);
                 let array = Array.from(result);
-                console.log(array);
+              //  console.log(array);
                 this.setState({
                     adData: array
                 });
