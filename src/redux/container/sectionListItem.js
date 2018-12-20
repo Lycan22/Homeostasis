@@ -17,7 +17,7 @@ export default class sectionListItem extends Component {
     }
 
     static propTypes = {
-        data: PropTypes.object.isRequired,
+        item: PropTypes.object.isRequired,
     };
 
     render() {
@@ -27,15 +27,15 @@ export default class sectionListItem extends Component {
                             containerStyle={{backgroundColor:'#F0FFF0'}}
                             >
                             <Text style={styles.text}>
-                                {this.props.data.remedy}{':'}
+                                {this.props.item.remedy}{':'}
                             </Text>
                             <Text style={styles.text}>
-                                {this.props.data.synopsis}
+                                {this.props.item.synopsis}
                             </Text>
                             <Button
                                 raised
                                 backgroundColor='#03A9F4'
-                                onPress={() =>{Actions.details({data_id:this.props.data.id})}}
+                                onPress={() =>{Actions.details({data_id:this.props.item.id})}}
                                 buttonStyle={{borderRadius: 0, marginLeft: 0, marginRight: 0, marginBottom: 0}}
                                 title='More detail' />
                         </Card>

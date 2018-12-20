@@ -45,7 +45,7 @@ import CompleteFlatList from 'react-native-complete-flatlist'
 
          console.log(item+' this is original data');
 
-         return(<DataItem data={data}/>);
+         return(<DataItem item={item}/>);
      };
 
      searchChanged(text) {
