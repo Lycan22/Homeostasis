@@ -42,9 +42,10 @@ class result extends Component {
         this.timer = setTimeout(()=>{
             Realm.open(allSchemas).then(realm => {
                 let result = realm.objects("Remedies").filtered(`${this.state.row} CONTAINS[c] "${text}"`);
-                 console.log(result.length);
+                let array = Array.from(result);
+                console.log(array);
                 this.setState({
-                    adData: result
+                    adData: array
                 });
             }).catch((error) => (error));
         }, 1000);
