@@ -17,11 +17,22 @@ export const RemediesSchema = {
 };
 
 
+export const QuotesSchema = {
+    name: 'Quotes',
+    properties: {
+        author: 'string?',
+        content: 'string?',
+
+    },
+};
+
+
+
 export const allSchemas ={
     path: Platform.OS === 'ios'
         ? fs.MainBundlePath + '/home.realm'
         : fs.DocumentDirectoryPath + '/home.realm',
-    schema: [RemediesSchema],
+    schema: [RemediesSchema,QuotesSchema],
     readOnly:true
 };
 
