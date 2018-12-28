@@ -31,7 +31,7 @@ export const allSchemas ={
     path: Platform.OS === 'ios'
         ? fs.MainBundlePath + '/home.realm'
         : fs.DocumentDirectoryPath + '/home.realm',
-    schema: [RemediesSchema,QuotesSchema],
+    schema: [RemediesSchema],
     readOnly:true
 };
 

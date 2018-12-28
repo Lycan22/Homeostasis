@@ -47,6 +47,7 @@ class result extends Component {
                 this.setState({
                     adData: array
                 });
+                console.log(array);
             }).catch((error) => (error));
         }, 1000);
     };
