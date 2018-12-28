@@ -22,7 +22,6 @@ export const QuotesSchema = {
     properties: {
         author: 'string?',
         content: 'string?',
-
     },
 };
 
