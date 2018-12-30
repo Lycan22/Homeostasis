@@ -17,7 +17,6 @@ import CompleteFlatList from 'react-native-complete-flatlist'
              query: "",
              data: [],
          };
-         //binding
          this.searchChanged = this.searchChanged.bind(this);
      }
 

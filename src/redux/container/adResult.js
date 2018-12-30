@@ -32,24 +32,23 @@ class result extends Component {
         this.timer = null;
         const row = this.props.words;
         this.setState({
-            rows:row
+            row:row
         });
     }
 
     makeSearch = (text) => {
-        const col = this.state.rows;
-        console.log('col'+col);
         clearTimeout(this.timer);
         this.timer = setTimeout(()=>{
             Realm.open(allSchemas).then(realm => {
-                let result = realm.objects("Remedies").filtered(`${col} CONTAINS[c] "${text}"`);
+                let result = realm.objects("Remedies").filtered(`${this.state.row} CONTAINS[c] "${text}"`);
                 let array = Array.from(result);
               //  console.log(array);
                 this.setState({
                     adData: array
                 });
-                console.log(array);
+                console.log(array.map(data=>{return data.remedy || data.location}));
             }).catch((error) => (error));
+
         }, 1000);
     };
 
