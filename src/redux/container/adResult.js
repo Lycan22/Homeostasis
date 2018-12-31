@@ -26,7 +26,6 @@ class result extends Component {
             adData: [],
         };
     }
-
     componentWillMount(){
         this.timer = null;
         const row = this.props.words;
@@ -34,7 +33,6 @@ class result extends Component {
             row:row
         });
     }
-
     makeSearch = (text) => {
         clearTimeout(this.timer);
         this.timer = setTimeout(()=>{
@@ -47,12 +45,10 @@ class result extends Component {
                 });
                 console.log('items'+array);
             }).catch((error) => (error));
-
         }, 1000);
     };
 
     _keyExtractor = (item, index) => item.id;
-
 
     renderLoading() {
         if(!this.props.loading) {
@@ -64,7 +60,6 @@ class result extends Component {
             </View>
         );
     }
-
     render() {
         return (
             <ScrollView style={{flex: 1}}>
