@@ -41,18 +41,17 @@ class result extends Component {
             Realm.open(allSchemas).then(realm => {
                 let result = realm.objects("Remedies").filtered(`${this.state.row} CONTAINS[c] "${text}"`);
                 let array = Array.from(result);
-                let col = array.map(items=>{return items[this.state.row]});
-              //  console.log(array);
+             //   let col = array.map(items=>{return items[this.state.row]});
                 this.setState({
-                    adData: col
+                    adData: array
                 });
-                console.log('items'+col);
+                console.log('items'+array);
             }).catch((error) => (error));
 
         }, 1000);
     };
 
-    _keyExtractor = (item, index) => index;
+    _keyExtractor = (item, index) => item.id;
 
 
     renderLoading() {
@@ -81,16 +80,16 @@ class result extends Component {
                     }}
                     data={this.state.adData}
                     keyExtractor={this._keyExtractor}
-                    renderItem={ ({items}) => {
+                    renderItem={ ({item}) => {
                         return (
                             <TouchableOpacity
                                 onPress={()=>{
-                                    Actions.details({data_id:items.id});
+                                    Actions.details({data_id:item.id});
                                 }}>
                                 <Card
-                                    title={items}>
+                                    title={item.remedy}>
                                     <Text style={styles.text}>
-                                        {item}
+                                        {item[this.state.row]}
                                     </Text>
                                 </Card>
                             </TouchableOpacity>
