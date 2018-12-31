@@ -8,7 +8,7 @@
 
 'use strict';
 
-import React, { Component } from 'react';
+import React from 'react';
 import Router from './Router';
 import Realm from "realm";
 

@@ -1,7 +1,7 @@
 'use strict';
 
 import React, { Component } from 'react';
-import {View, Text, ImageBackground, StyleSheet, Dimensions} from 'react-native';
+import {View, Text, ImageBackground, StyleSheet} from 'react-native';
 
 export default class diagnostic extends Component {
     render() {

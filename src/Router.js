@@ -1,6 +1,6 @@
 'use strict';
 
-import React, { Component } from "react"
+import React from "react"
 import {Scene, Router, Drawer} from "react-native-router-flux";
 import { connect, Provider } from 'react-redux';
 
