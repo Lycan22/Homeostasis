@@ -38,7 +38,7 @@ class result extends Component {
         this.timer = setTimeout(()=>{
             Realm.open(allSchemas).then(realm => {
                 let result = realm.objects("Remedies").filtered(`${this.state.row} CONTAINS[c] "${text}"`);
-                let array = Array.from(result);
+                let array = Array.from(result).slice(0,20);
                 this.setState({
                     adData: array
                 });
@@ -70,7 +70,7 @@ class result extends Component {
                 <FlatList
                     ListFooterComponent={ this.renderLoading.bind(this) }
                     ListHeaderComponent={()=>{
-                        return <Text style={{color: '#3783ba', fontWeight:'bold', margin: 5}}>Result: {this.state.adData.length}</Text>
+                        return <Text style={{color: '#3783ba', fontWeight:'bold', margin: 5}}>Result Limited 20: {this.state.adData.length}</Text>
                     }}
                     data={this.state.adData}
                     keyExtractor={this._keyExtractor}
