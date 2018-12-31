@@ -17,7 +17,6 @@ import Realm from "realm";
 import {allSchemas} from "../../database/allSchema";
 
 
-
 class result extends Component {
 
     constructor(props) {
@@ -42,17 +41,18 @@ class result extends Component {
             Realm.open(allSchemas).then(realm => {
                 let result = realm.objects("Remedies").filtered(`${this.state.row} CONTAINS[c] "${text}"`);
                 let array = Array.from(result);
+                let col = array.map(items=>{return items[this.state.row]});
               //  console.log(array);
                 this.setState({
-                    adData: array
+                    adData: col
                 });
-                console.log(array.map(data=>{return data.remedy || data.location}));
+                console.log('items'+col);
             }).catch((error) => (error));
 
         }, 1000);
     };
 
-    _keyExtractor = (item, index) => item.id;
+    _keyExtractor = (item, index) => index;
 
 
     renderLoading() {
@@ -81,17 +81,16 @@ class result extends Component {
                     }}
                     data={this.state.adData}
                     keyExtractor={this._keyExtractor}
-                    renderItem={ ({item, index}) => {
+                    renderItem={ ({items}) => {
                         return (
                             <TouchableOpacity
                                 onPress={()=>{
-                                    Actions.details({data_id:item.id});
+                                    Actions.details({data_id:items.id});
                                 }}>
                                 <Card
-                                    title={item.remedy}>
+                                    title={items}>
                                     <Text style={styles.text}>
-                                        {item.keynote || item.concomitants|| item.location ||
-                                        item.aetiology || item.modalities || item.constitutional}
+                                        {item}
                                     </Text>
                                 </Card>
                             </TouchableOpacity>
