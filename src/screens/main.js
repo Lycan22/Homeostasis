@@ -3,12 +3,16 @@
 import React, { Component } from 'react';
 import {View, Text, StyleSheet, Dimensions} from 'react-native';
 
+let time = new Date().toLocaleString();
+
 export default class main extends Component {
+
+
     render() {
         return (
             <View style={styles.container}>
                 <Text style={styles.text}>
-                    Day of quote
+                    {time}
                 </Text>
             </View>
         );
