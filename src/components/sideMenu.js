@@ -83,6 +83,12 @@ class SideMenu extends Component {
                 onPress={() => Actions.caseStudy()}>
                 Case Study
             </Button>
+          <Button
+              containerStyle={styles.container}
+              style={styles.textStyle}
+              onPress={() => Actions.about()}>
+            About
+          </Button>
         </CardSection>
       </View>
     );

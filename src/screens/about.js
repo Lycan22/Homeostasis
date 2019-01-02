@@ -3,7 +3,7 @@
 import React, { Component } from 'react';
 import {View, Text} from 'react-native';
 
-export default class caseFrag extends Component {
+export default class About extends Component {
     render() {
         return (
             <View>
@@ -12,4 +12,3 @@ export default class caseFrag extends Component {
         );
     }
 }
-

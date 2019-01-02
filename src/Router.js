@@ -9,12 +9,13 @@ import MainFrag from './screens/main';
 import ListView from './redux/container/list';
 import SectionFrag from './screens/section'
 import DiagnosticFrag from './screens/diagnostic';
-import CaseFrag from './screens/case';
+import Case from './screens/case';
 import EchoView from './components/echoView';
 import SideMenu from './components/sideMenu';
 import DetailView from './redux/container/details';
 import AdvanceSearch from './screens/adSearch';
 import AdResult from './redux/container/adResult';
+import About from './screens/about';
 
 
 const store = configureStore();
@@ -56,8 +57,13 @@ const RouterComponent = () => (
                     />
                     <Scene
                         key="caseStudy"
-                        component={CaseFrag}
+                        component={Case}
                         title="Case"
+                    />
+                    <Scene
+                        key="about"
+                        component={About}
+                        title="About"
                     />
                 </Scene>
             </Drawer>
