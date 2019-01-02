@@ -31,6 +31,7 @@ export const quoSchemas ={
         ? fs.MainBundlePath + '/quotes.realm'
         : fs.DocumentDirectoryPath + '/quotes.realm',
     schema: [QuotesSchema],
+    schemaVersion: 0, //no section4
     readOnly:true
 };
 
@@ -41,6 +42,7 @@ export const remSchemas ={
         ? fs.MainBundlePath + '/home.realm'
         : fs.DocumentDirectoryPath + '/home.realm',
     schema: [RemediesSchema],
+    schemaVersion: 0, //75 item
     readOnly:true
 };
 

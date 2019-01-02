@@ -18,10 +18,10 @@ export default class main extends Component {
 
     componentWillMount() {
         Realm.open(quoSchemas).then(realm => {
-            let item = realm.objects("Quotes").filtered(`id = "${id}"`);
-            // console.log(item.length);
+            let quote = realm.objects("Quotes");
+            console.log(quote.length);
             this.setState({
-                result: item
+                quotes: quote
             });
         }).catch((error) => (error));
     }
