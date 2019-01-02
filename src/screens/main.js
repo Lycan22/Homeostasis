@@ -5,23 +5,24 @@ import {View, Text, StyleSheet, Dimensions} from 'react-native';
 import Realm from "realm";
 import {quoSchemas} from '../database/allSchema';
 
-let time = new Date().toLocaleString();
 
 export default class main extends Component {
 
     constructor(props) {
         super(props);
         this.state = {
-            quotes:{},
+            quote:{},
         };
     }
 
     componentWillMount() {
         Realm.open(quoSchemas).then(realm => {
             let quote = realm.objects("Quotes");
-            console.log(quote.length);
+            let item = Array.from(quote);
+            let randItem = item[Math.floor(Math.random()*item.length)];
+            console.log(randItem);
             this.setState({
-                quotes: quote
+                quote: randItem
             });
         }).catch((error) => (error));
     }
@@ -31,7 +32,7 @@ export default class main extends Component {
         return (
             <View style={styles.container}>
                 <Text style={styles.text}>
-                    {time}
+                    {this.state.quote.toString()}
                 </Text>
             </View>
         );
