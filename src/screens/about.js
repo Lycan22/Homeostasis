@@ -13,6 +13,10 @@ export default class About extends Component {
                     及知會持有copyright的相關人士.
                     謝謝同學們
                 </Text>
+                <Text style={styles.foot}>
+                    本程式尚有部分正在建立中,如有興趣可聯絡小弟幫忙DataBase.
+                    程式只是載體,內裡資料才是主體
+                </Text>
             </View>
         );
     }
@@ -30,6 +34,9 @@ const styles = StyleSheet.create({
     text:{
         fontSize:15,
         paddingBottom:400,
+        width: Dimensions.get('window').width/1.2,
+    },
+    foot:{
         width: Dimensions.get('window').width/1.2,
     }
 
