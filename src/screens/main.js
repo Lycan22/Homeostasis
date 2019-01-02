@@ -31,9 +31,9 @@ export default class main extends Component {
         return (
             <View style={styles.container}>
                 <Text style={styles.text}>
-                    {this.state.quote.content}
-                    {this.state.quote.author}
-                </Text>
+                {this.state.quote.content}
+                Author - {this.state.quote.author}
+            </Text>
             </View>
         );
     }
@@ -50,7 +50,8 @@ const styles = StyleSheet.create({
     },
     text:{
         fontSize:15,
-        paddingBottom:200
+        paddingBottom:400,
+        width: Dimensions.get('window').width/1.2,
     }
 
 });
