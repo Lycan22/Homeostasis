@@ -4,7 +4,7 @@ import React, { Component } from 'react';
 import {
     StyleSheet, ScrollView,
 } from 'react-native';
-import {allSchemas} from "../../database/allSchema";
+import {remSchemas} from "../../database/allSchema";
 import Realm from 'realm';
 import DataItem from './sectionListItem';
 import CompleteFlatList from 'react-native-complete-flatlist'
@@ -23,7 +23,7 @@ import CompleteFlatList from 'react-native-complete-flatlist'
      componentWillMount() {
          const section = this.props.section;
          console.log(section + "done");
-         Realm.open(allSchemas).then(realm => {
+         Realm.open(remSchemas).then(realm => {
              let list = realm.objects("Remedies").filtered(`id CONTAINS[c] "${section}"`);
           //   console.log(list.length);
              this.setState({

@@ -14,7 +14,7 @@ import {SearchBar } from 'react-native-elements';
 import {Actions} from "react-native-router-flux";
 import { Card} from 'react-native-elements';
 import Realm from "realm";
-import {allSchemas} from "../../database/allSchema";
+import {remSchemas} from "../../database/allSchema";
 
 
 class result extends Component {
@@ -36,7 +36,7 @@ class result extends Component {
     makeSearch = (text) => {
         clearTimeout(this.timer);
         this.timer = setTimeout(()=>{
-            Realm.open(allSchemas).then(realm => {
+            Realm.open(remSchemas).then(realm => {
                 let result = realm.objects("Remedies").filtered(`${this.state.row} CONTAINS[c] "${text}"`);
                 let array = Array.from(result).slice(0,20);
                 this.setState({

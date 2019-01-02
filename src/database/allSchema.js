@@ -26,8 +26,17 @@ export const QuotesSchema = {
 };
 
 
+export const quoSchemas ={
+    path: Platform.OS === 'ios'
+        ? fs.MainBundlePath + '/quotes.realm'
+        : fs.DocumentDirectoryPath + '/quotes.realm',
+    schema: [QuotesSchema],
+    readOnly:true
+};
 
-export const allSchemas ={
+
+
+export const remSchemas ={
     path: Platform.OS === 'ios'
         ? fs.MainBundlePath + '/home.realm'
         : fs.DocumentDirectoryPath + '/home.realm',

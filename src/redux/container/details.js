@@ -4,7 +4,7 @@ import React, { Component } from 'react';
 import {StyleSheet, Text, View, ScrollView, FlatList} from 'react-native';
 import { Card } from 'react-native-elements';
 import Realm from "realm";
-import {allSchemas} from "../../database/allSchema";
+import {remSchemas} from "../../database/allSchema";
 
  class details extends Component {
     constructor(props) {
@@ -17,7 +17,7 @@ import {allSchemas} from "../../database/allSchema";
     componentWillMount(){
         const id = this.props.data_id || 'No Data';
       //  console.log(id+"receive");
-            Realm.open(allSchemas).then(realm => {
+            Realm.open(remSchemas).then(realm => {
                 let item = realm.objects("Remedies").filtered(`id = "${id}"`);
                // console.log(item.length);
                 this.setState({

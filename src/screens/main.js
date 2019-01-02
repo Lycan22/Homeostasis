@@ -2,10 +2,29 @@
 
 import React, { Component } from 'react';
 import {View, Text, StyleSheet, Dimensions} from 'react-native';
+import Realm from "realm";
+import {quoSchemas} from '../database/allSchema';
 
 let time = new Date().toLocaleString();
 
 export default class main extends Component {
+
+    constructor(props) {
+        super(props);
+        this.state = {
+            quotes:{},
+        };
+    }
+
+    componentWillMount() {
+        Realm.open(quoSchemas).then(realm => {
+            let item = realm.objects("Quotes").filtered(`id = "${id}"`);
+            // console.log(item.length);
+            this.setState({
+                result: item
+            });
+        }).catch((error) => (error));
+    }
 
 
     render() {
