@@ -11,7 +11,7 @@ export default class diagnostic extends Component {
                     source={require('../icons/homeopathy_sym.png')}
                     style={styles.backgroundImage}>
                     <Text>
-                        Some text here ...
+                        Process
                     </Text>
                 </ImageBackground>
             </View>

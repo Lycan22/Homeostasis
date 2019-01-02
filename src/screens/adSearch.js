@@ -22,7 +22,7 @@ class search extends Component {
                         Modalities Searching:藥征搜尋
                         Constitutional Searching:體質搜尋
                     </Text>}>
-                    <Text style={styles.popovers}>Hi, press me</Text>
+                    <Text style={styles.popovers}>hit me, when u need help</Text>
                 </Tooltip>
                 <Text style={styles.textTitle}> </Text>
                 <Button onPress={() =>{Actions.adResult({words: 'keynote'});}}>Keynote Searching</Button>

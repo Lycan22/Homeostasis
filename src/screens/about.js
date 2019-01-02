@@ -1,19 +1,36 @@
 'use strict';
 
 import React, { Component } from 'react';
-import {View, Text} from 'react-native';
+import {View, Text, StyleSheet, Dimensions} from 'react-native';
 
 export default class About extends Component {
     render() {
         return (
-            <View>
-                <Text>本程式只用作學術交流,而且不會上架,只用作封測測試
-                    如對內容有疑問,請參考AHI Note.所有資料以課程筆記為準
+            <View style={styles.container}>
+                <Text　style={styles.text}>本程式只用作學術交流及封測測試,並不會上架.
+                    如對內容有疑問,請參考AHI Notes.所有資料以課程筆記為準
                     任何人未經著作者同意,不得進行任何發佈.如有發現,會即時關閉封測.
-                    及知會有關人士.
-                    謝謝
+                    及知會持有copyright的相關人士.
+                    謝謝同學們
                 </Text>
             </View>
         );
     }
 }
+
+
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: '#ffffff',
+        width: Dimensions.get('window').width,
+    },
+    text:{
+        fontSize:15,
+        paddingBottom:400,
+        width: Dimensions.get('window').width/1.2,
+    }
+
+});
