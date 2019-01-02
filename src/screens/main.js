@@ -20,7 +20,6 @@ export default class main extends Component {
             let quote = realm.objects("Quotes");
             let item = Array.from(quote);
             let randItem = item[Math.floor(Math.random()*item.length)];
-            console.log(randItem);
             this.setState({
                 quote: randItem
             });
@@ -32,7 +31,8 @@ export default class main extends Component {
         return (
             <View style={styles.container}>
                 <Text style={styles.text}>
-                    {this.state.quote.toString()}
+                    {this.state.quote.content}
+                    {this.state.quote.author}
                 </Text>
             </View>
         );
