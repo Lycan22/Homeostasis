@@ -1,7 +1,7 @@
 'use strict';
 
 import React, { Component } from 'react';
-import {View, Text, ImageBackground, StyleSheet} from 'react-native';
+import {View, Text, ImageBackground, StyleSheet,Dimensions} from 'react-native';
 
 export default class diagnostic extends Component {
     render() {
@@ -10,9 +10,6 @@ export default class diagnostic extends Component {
                 <ImageBackground
                     source={require('../icons/homeopathy_sym.png')}
                     style={styles.backgroundImage}>
-                    <Text>
-                        Process
-                    </Text>
                 </ImageBackground>
             </View>
         );
@@ -27,7 +24,8 @@ const styles = StyleSheet.create({
     },
     backgroundImage:{
         flex : 1,
-        width : '100%'
+        width : Dimensions.get('window').width,
+        height:Dimensions.get('window').height*0.89,
     }
 });
 
