@@ -33,7 +33,7 @@ const styles = StyleSheet.create({
     },
     text:{
         fontSize:15,
-        paddingBottom:400,
+        paddingBottom:Dimensions.get('window').height/2,
         width: Dimensions.get('window').width/1.2,
     },
     foot:{
