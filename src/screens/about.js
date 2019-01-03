@@ -15,7 +15,6 @@ export default class About extends Component {
                 </Text>
                 <Text style={styles.foot}>
                     本程式尚有部分正在建立中,如有興趣可聯絡小弟幫忙DataBase.
-                    程式只是載體,內裡資料才是主體
                 </Text>
             </View>
         );
