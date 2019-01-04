@@ -1,7 +1,7 @@
 'use strict';
 
 import React, { Component } from 'react';
-import {View, Text, StyleSheet, Dimensions} from 'react-native';
+import {View, Text, StyleSheet, Dimensions, Image} from 'react-native';
 import Realm from "realm";
 import {quoSchemas} from '../database/allSchema';
 
@@ -34,6 +34,9 @@ export default class main extends Component {
                 {this.state.quote.content}
                 Author - {this.state.quote.author}
             </Text>
+                <Image
+                    source={require('../icons/plant.png')}>
+                </Image>
             </View>
         );
     }
@@ -50,8 +53,8 @@ const styles = StyleSheet.create({
     },
     text:{
         fontSize:15,
-        paddingBottom:Dimensions.get('window').height/2,
+        paddingBottom:Dimensions.get('window').height/2.5,
         width: Dimensions.get('window').width/1.2,
-    }
+    },
 
 });
