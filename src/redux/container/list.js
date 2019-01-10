@@ -8,6 +8,7 @@ import {remSchemas} from "../../database/allSchema";
 import Realm from 'realm';
 import DataItem from './sectionListItem';
 import CompleteFlatList from 'react-native-complete-flatlist'
+import * as Animatable from 'react-native-animatable';
 
  class list extends Component {
 

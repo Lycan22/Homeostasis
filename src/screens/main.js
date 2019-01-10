@@ -1,10 +1,10 @@
 'use strict';
 
 import React, { Component } from 'react';
-import {View, Text, StyleSheet, Dimensions, Image} from 'react-native';
+import {View, Text, StyleSheet, Dimensions, Image,TouchableOpacity} from 'react-native';
 import Realm from "realm";
 import {quoSchemas} from '../database/allSchema';
-
+import * as Animatable from 'react-native-animatable';
 
 export default class main extends Component {
 
@@ -30,10 +30,11 @@ export default class main extends Component {
     render() {
         return (
             <View style={styles.container}>
-                <Text style={styles.text}>
+                <Animatable.Text animation="fadeIn" duration={5000} style={styles.text}>
+                <Text>
                 {this.state.quote.content}
                 Author - {this.state.quote.author}
-            </Text>
+            </Text></Animatable.Text>
                 <Image
                     source={require('../icons/plant.png')}>
                 </Image>

@@ -15,6 +15,7 @@ import {Actions} from "react-native-router-flux";
 import { Card} from 'react-native-elements';
 import Realm from "realm";
 import {remSchemas} from "../../database/allSchema";
+import * as Animatable from 'react-native-animatable';
 
 
 class result extends Component {
@@ -47,7 +48,7 @@ class result extends Component {
         }, 1000);
     };
 
-    _keyExtractor = (item, index) => item.id;
+    _keyExtractor = (item, index) => index.toString();
 
     renderLoading() {
         if(!this.props.loading) {
@@ -62,11 +63,13 @@ class result extends Component {
     render() {
         return (
             <ScrollView style={{flex: 1}}>
+                <Animatable.View animation="lightSpeedIn" duration={500}>
                 <SearchBar
                     round
                     lightTheme
                     onChangeText={text=>this.makeSearch(text)}
                     placeholder='請輸入關鍵字搜尋' />
+                </Animatable.View>
                 <FlatList
                     ListFooterComponent={ this.renderLoading.bind(this) }
                     ListHeaderComponent={()=>{
