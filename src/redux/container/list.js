@@ -26,7 +26,7 @@ import * as Animatable from 'react-native-animatable';
          console.log(section + "done");
          Realm.open(remSchemas).then(realm => {
              let list = realm.objects("Remedies").filtered(`id CONTAINS[c] "${section}"`);
-          //   console.log(list.length);
+             //   console.log(list.length);
              this.setState({
                  data: list
              });
@@ -35,10 +35,10 @@ import * as Animatable from 'react-native-animatable';
      }
 
 
-     cell = (data,index) => {
+     cell = (data, index) => {
          const item = data.cleanData ? data.cleanData : data;
-         return(<DataItem item={item}
-                          data={data}/>);
+         return (<DataItem item={item}
+                           data={data}/>);
      };
 
      searchChanged(text) {
@@ -48,10 +48,11 @@ import * as Animatable from 'react-native-animatable';
      render() {
          let filteredLoads = this.state.data.filter(
              (text) => {
-                 return(
+                 return (
                      text['remedy'].toLowerCase().indexOf(this.state.query.toLowerCase()) !== -1
                      || text['synopsis'].toLowerCase().indexOf(this.state.query.toLowerCase()) !== -1
-                 )}
+                 )
+             }
          );
          return (
              <ScrollView style={{flex: 1}}>

@@ -33,27 +33,27 @@ import * as Animatable from 'react-native-animatable';
              <Card
                          title={item.remedy}>
                          <Text style={styles.textTitle}>Concomitants :</Text>
-                             <Animatable.Text  Texttransition="fontSize" style={{fontSize: this.state.fontSize || 12 }}>
+                             <Animatable.Text  Texttransition="fontSize"  style={{color: 'black',fontSize: this.state.fontSize || 12 }}>
                                  {item.concomitants}</Animatable.Text>
 
                          <Text style={styles.textTitle}>Location :</Text>
-                             <Animatable.Text  Texttransition="fontSize" style={{fontSize: this.state.fontSize || 12 }}>
+                             <Animatable.Text  Texttransition="fontSize" style={{color: 'black',fontSize: this.state.fontSize || 12 }}>
                                  {item.location}</Animatable.Text>
 
                          <Text style={styles.textTitle}>Aetiology :</Text>
-                             <Animatable.Text  Texttransition="fontSize" style={{fontSize: this.state.fontSize || 12 }}>
+                             <Animatable.Text  Texttransition="fontSize" style={{color: 'black',fontSize: this.state.fontSize || 12 }}>
                                  {item.aetiology}</Animatable.Text>
 
                          <Text style={styles.textTitle}>Modalities :</Text>
-                            <Animatable.Text  Texttransition="fontSize" style={{fontSize: this.state.fontSize || 12 }}>
+                            <Animatable.Text  Texttransition="fontSize" style={{color: 'black',fontSize: this.state.fontSize || 12 }}>
                                  {item.modalities}</Animatable.Text>
 
                          <Text style={styles.textTitle}>Synopsis :</Text>
-                            <Animatable.Text  Texttransition="fontSize" style={{fontSize: this.state.fontSize || 12 }}>
+                            <Animatable.Text  Texttransition="fontSize" style={{color: 'black',fontSize: this.state.fontSize || 12 }}>
                                  {item.synopsis}</Animatable.Text>
 
                          <Text style={styles.textTitle}>Keynote :</Text>
-                            <Animatable.Text  Texttransition="fontSize" style={{fontSize: this.state.fontSize || 12 }}>
+                            <Animatable.Text  Texttransition="fontSize" style={{color: 'black',fontSize: this.state.fontSize || 12 }}>
                                 {item.keynote}</Animatable.Text>
              </Card>
 
@@ -63,10 +63,10 @@ import * as Animatable from 'react-native-animatable';
     render() {
         return (
             <ScrollView style={{flex: 1}}>
-                <TouchableOpacity style={styles.button} onPress={() => this.setState({fontSize: (this.state.fontSize || 10) + 5 })}>
+                <TouchableOpacity  onPress={() => this.setState({fontSize: (this.state.fontSize || 10) + 5 })}>
                     <Text>+ 放大字體</Text>
                 </TouchableOpacity>
-                <TouchableOpacity style={styles.button} onPress={() => this.setState({fontSize: (this.state.fontSize || 10) - 5 })}>
+                <TouchableOpacity  onPress={() => this.setState({fontSize: (this.state.fontSize || 10) - 5 })}>
                     <Text>- 縮細字體</Text>
                 </TouchableOpacity>
                 <FlatList
@@ -93,11 +93,6 @@ const styles = StyleSheet.create({
         color: '#3783ba',
         fontWeight:'bold',
         marginBottom: 5
-    },
-    contextText:{
-        fontSize: 12,
-        color: 'black',
-
     },
     button: {
         alignItems: 'center',
