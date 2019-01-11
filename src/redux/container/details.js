@@ -1,10 +1,11 @@
 'use strict';
 
 import React, { Component } from 'react';
-import {StyleSheet, Text, View, ScrollView, FlatList} from 'react-native';
+import {StyleSheet, Text, View, ScrollView, FlatList,TouchableOpacity} from 'react-native';
 import { Card } from 'react-native-elements';
 import Realm from "realm";
 import {remSchemas} from "../../database/allSchema";
+import * as Animatable from 'react-native-animatable';
 
  class details extends Component {
     constructor(props) {
@@ -31,23 +32,29 @@ import {remSchemas} from "../../database/allSchema";
          return (
              <Card
                          title={item.remedy}>
-                         <Text style={styles.textTitle}>Concomitants :
-                             <Text style={styles.contextText}> {item.concomitants}</Text></Text>
+                         <Text style={styles.textTitle}>Concomitants :</Text>
+                             <Animatable.Text  Texttransition="fontSize" style={{fontSize: this.state.fontSize || 12 }}>
+                                 {item.concomitants}</Animatable.Text>
 
-                         <Text style={styles.textTitle}>Location :
-                             <Text style={styles.contextText}> {item.location}</Text></Text>
+                         <Text style={styles.textTitle}>Location :</Text>
+                             <Animatable.Text  Texttransition="fontSize" style={{fontSize: this.state.fontSize || 12 }}>
+                                 {item.location}</Animatable.Text>
 
-                         <Text style={styles.textTitle}>Aetiology :
-                             <Text style={styles.contextText}> {item.aetiology}</Text></Text>
+                         <Text style={styles.textTitle}>Aetiology :</Text>
+                             <Animatable.Text  Texttransition="fontSize" style={{fontSize: this.state.fontSize || 12 }}>
+                                 {item.aetiology}</Animatable.Text>
 
-                         <Text style={styles.textTitle}>Modalities :
-                             <Text style={styles.contextText}>{item.modalities}</Text></Text>
+                         <Text style={styles.textTitle}>Modalities :</Text>
+                            <Animatable.Text  Texttransition="fontSize" style={{fontSize: this.state.fontSize || 12 }}>
+                                 {item.modalities}</Animatable.Text>
 
-                         <Text style={styles.textTitle}>Synopsis :
-                             <Text style={styles.contextText}>{item.synopsis}</Text></Text>
+                         <Text style={styles.textTitle}>Synopsis :</Text>
+                            <Animatable.Text  Texttransition="fontSize" style={{fontSize: this.state.fontSize || 12 }}>
+                                 {item.synopsis}</Animatable.Text>
 
-                         <Text style={styles.textTitle}>Keynote :
-                             <Text style={styles.contextText}>{item.keynote}</Text></Text>
+                         <Text style={styles.textTitle}>Keynote :</Text>
+                            <Animatable.Text  Texttransition="fontSize" style={{fontSize: this.state.fontSize || 12 }}>
+                                {item.keynote}</Animatable.Text>
              </Card>
 
          )};
@@ -56,6 +63,12 @@ import {remSchemas} from "../../database/allSchema";
     render() {
         return (
             <ScrollView style={{flex: 1}}>
+                <TouchableOpacity onPress={() => this.setState({fontSize: (this.state.fontSize || 10) + 5 })}>
+                    <Text>+ 放大字體</Text>
+                </TouchableOpacity>
+                <TouchableOpacity onPress={() => this.setState({fontSize: (this.state.fontSize || 10) - 5 })}>
+                    <Text>- 縮細字體</Text>
+                </TouchableOpacity>
                 <FlatList
                     onEndReache={() => this.state.result.length}
                     data={ this.state.result}
