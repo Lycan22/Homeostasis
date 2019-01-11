@@ -63,10 +63,10 @@ import * as Animatable from 'react-native-animatable';
     render() {
         return (
             <ScrollView style={{flex: 1}}>
-                <TouchableOpacity onPress={() => this.setState({fontSize: (this.state.fontSize || 10) + 5 })}>
+                <TouchableOpacity style={styles.button} onPress={() => this.setState({fontSize: (this.state.fontSize || 10) + 5 })}>
                     <Text>+ 放大字體</Text>
                 </TouchableOpacity>
-                <TouchableOpacity onPress={() => this.setState({fontSize: (this.state.fontSize || 10) - 5 })}>
+                <TouchableOpacity style={styles.button} onPress={() => this.setState({fontSize: (this.state.fontSize || 10) - 5 })}>
                     <Text>- 縮細字體</Text>
                 </TouchableOpacity>
                 <FlatList
@@ -98,7 +98,12 @@ const styles = StyleSheet.create({
         fontSize: 12,
         color: 'black',
 
-    }
+    },
+    button: {
+        alignItems: 'center',
+        backgroundColor: '#DDDDDD',
+        padding: 10
+    },
 });
 
 export default details
