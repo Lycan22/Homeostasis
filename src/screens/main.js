@@ -1,7 +1,7 @@
 'use strict';
 
 import React, { Component } from 'react';
-import {View, Text, StyleSheet, Dimensions, Image,TouchableOpacity} from 'react-native';
+import {View, Text, StyleSheet, Dimensions, ImageBackground,TouchableOpacity} from 'react-native';
 import Realm from "realm";
 import {quoSchemas} from '../database/allSchema';
 import * as Animatable from 'react-native-animatable';
@@ -30,15 +30,17 @@ export default class main extends Component {
     render() {
         return (
             <View style={styles.container}>
-                <Animatable.Text animation="fadeIn" duration={5000} style={styles.text}>
-                <Text>
-                {this.state.quote.content}
+                <ImageBackground source={require('../icons/book.png')} style={styles.image}>
+            <View style={{justifyContent:'center',alignItems:'center'}}>
+                    <Animatable.Text animation="fadeIn" duration={5000} style={styles.text}>
+                <Text>{this.state.quote.content}
                 Author - {this.state.quote.author}
-            </Text></Animatable.Text>
-                <Image
-                    source={require('../icons/plant.png')}>
-                </Image>
+            </Text>
+                    </Animatable.Text>
             </View>
+            </ImageBackground>
+            </View>
+
         );
     }
 }
@@ -47,7 +49,8 @@ export default class main extends Component {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        justifyContent: 'center',
+        flexDirection:'row',
+        justifyContent: 'space-around',
         alignItems: 'center',
         backgroundColor: '#ffffff',
         width: Dimensions.get('window').width,
@@ -57,5 +60,9 @@ const styles = StyleSheet.create({
         paddingBottom:Dimensions.get('window').height/2.5,
         width: Dimensions.get('window').width/1.2,
     },
+    image:{
+        justifyContent: 'center',
+        alignItems: 'center',
+    }
 
 });
