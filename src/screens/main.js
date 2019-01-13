@@ -30,8 +30,8 @@ export default class main extends Component {
     render() {
         return (
             <View style={styles.container}>
-                <ImageBackground source={require('../icons/book.png')} style={styles.image}>
-            <View style={{justifyContent:'center',alignItems:'center'}}>
+                <ImageBackground borderRadius={10} source={require('../icons/paper.png')} style={styles.image}>
+            <View style={{justifyContent:'center',alignItems:'center',}}>
                     <Animatable.Text animation="fadeIn" duration={5000} style={styles.text}>
                 <Text>{this.state.quote.content}
                 Author - {this.state.quote.author}
