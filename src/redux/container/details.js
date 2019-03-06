@@ -1,11 +1,12 @@
 'use strict';
 
 import React, { Component } from 'react';
-import {StyleSheet, Text, View, ScrollView, FlatList,TouchableOpacity} from 'react-native';
+import {StyleSheet, Text, View, ScrollView, FlatList} from 'react-native';
 import { Card } from 'react-native-elements';
 import Realm from "realm";
 import {remSchemas} from "../../database/allSchema";
 import * as Animatable from 'react-native-animatable';
+import AwesomeButton from "react-native-really-awesome-button";
 
  class details extends Component {
     constructor(props) {
@@ -62,13 +63,14 @@ import * as Animatable from 'react-native-animatable';
 
     render() {
         return (
-            <ScrollView style={{flex: 1}}>
-                <TouchableOpacity  onPress={() => this.setState({fontSize: (this.state.fontSize || 10) + 5 })}>
+            <View style={{flex: 1}}>
+                <AwesomeButton  onPress={() => this.setState({fontSize: (this.state.fontSize || 10) + 5 })}>
                     <Text>+ 放大字體</Text>
-                </TouchableOpacity>
-                <TouchableOpacity  onPress={() => this.setState({fontSize: (this.state.fontSize || 10) - 5 })}>
+                </AwesomeButton>
+                <AwesomeButton  onPress={() => this.setState({fontSize: (this.state.fontSize || 10) - 5 })}>
                     <Text>- 縮細字體</Text>
-                </TouchableOpacity>
+                </AwesomeButton>
+    <ScrollView>
                 <FlatList
                     onEndReache={() => this.state.result.length}
                     data={ this.state.result}
@@ -77,6 +79,7 @@ import * as Animatable from 'react-native-animatable';
                     renderItem={this._renderItem}
                 />
             </ScrollView>
+        </View>
 
         );
     }
@@ -84,9 +87,6 @@ import * as Animatable from 'react-native-animatable';
 
 
 const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-    },
     textTitle:{
         fontFamily: 'Iowan Old Style',
         fontSize: 14,

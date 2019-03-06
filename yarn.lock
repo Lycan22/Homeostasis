@@ -5380,6 +5380,11 @@ react-native-fs@^2.12.1:
     highlight-words-core "git+https://github.com/fattahmuhyiddeen/highlight-words-core.git#master"
     prop-types "^15.5.7"
 
+react-native-really-awesome-button@^1.4.0:
+  version "1.4.0"
+  resolved "https://registry.yarnpkg.com/react-native-really-awesome-button/-/react-native-really-awesome-button-1.4.0.tgz#2dfd73d229ce91cffb69f923f20ce7266086c250"
+  integrity sha512-Ib9sy798szOx/m0AnxKuETuJexysoprbwmpGZkdhB+QsOg8RFomKcX1lvqANc/EQxwrCJJRCSaHXGkwujdeq7Q==
+
 react-native-router-flux@^4.0.5:
   version "4.0.6"
   resolved "https://registry.yarnpkg.com/react-native-router-flux/-/react-native-router-flux-4.0.6.tgz#e4723f5ce89cb5822e0c9bb6d0a8d4de6179eb58"
